@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" data-bg-color="#0B2545">
+    <rect width="320" height="320" fill="#0B2545"></rect>
+    <rect x="96" y="88" width="128" height="128" rx="28" fill="#2E7DD1"></rect>
+    <text x="160" y="182" font-family="'Noto Sans JP',sans-serif" font-size="92" font-weight="800" fill="#ffffff" text-anchor="middle">N</text>
+    <text x="160" y="256" font-family="'Noto Sans JP',sans-serif" font-size="24" font-weight="700" fill="#9CC3F0" text-anchor="middle">NU-Web</text>
+  </svg>
+</template>
+<script src="./image-slot.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet">
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-bg-color="#0B2545">
+    <rect width="512" height="512" fill="#0B2545"></rect>
+    <rect x="150" y="150" width="212" height="212" rx="40" fill="#2E7DD1"></rect>
+    <text x="256" y="330" font-family="'Hiragino Mincho ProN','Yu Mincho',serif" font-size="150" font-weight="800" fill="#fff" text-anchor="middle">N</text>
+  </svg>
+</template>
+<style>
+  body{margin:0;background:#F4F6FA;}
+  a{color:#1E5FA8;}
+  a:hover{color:#164a86;}
+  ::-webkit-scrollbar{width:8px;height:8px;}
+  ::-webkit-scrollbar-thumb{background:#C7CEDA;border-radius:8px;}
+  .syllabus-detail{min-width:0;}
+  .syllabus-detail .syllabus-shell{min-width:0;}
+  @media (max-width:760px){
+    .global-header{padding:10px 14px!important;gap:8px;flex-wrap:wrap;}
+    .global-header > div:last-child{gap:8px;flex-wrap:wrap;justify-content:flex-end;}
+    .global-header > div:last-child > span{display:none;}
+    .global-nav{padding:0 14px!important;overflow-x:auto;}
+    .dashboard-main{padding:22px 14px 40px!important;}
+    .dashboard-grid{display:flex!important;flex-direction:column!important;gap:16px!important;}
+    .dashboard-main h1,.dashboard-main h2{line-height:1.45;}
+    .syllabus-detail .syllabus-shell{padding-left:14px!important;padding-right:14px!important;}
+    .syllabus-detail .syllabus-topbar{padding-left:14px!important;padding-right:14px!important;}
+    .syllabus-detail .syllabus-hero{padding:20px!important;}
+    .syllabus-detail .syllabus-hero-inner{flex-direction:column!important;gap:18px!important;}
+    .syllabus-detail .syllabus-hero-copy{width:100%!important;}
+    .syllabus-detail .syllabus-hero-image{width:100%!important;height:auto!important;aspect-ratio:16/9;}
+    .syllabus-detail .syllabus-hero-title{font-size:28px!important;}
+    .syllabus-detail .syllabus-facts{grid-template-columns:repeat(2,1fr)!important;}
+    .syllabus-detail .syllabus-facts > div{border-right:none!important;border-bottom:1px solid #eaf0f8;}
+    .syllabus-detail .syllabus-facts > div:nth-child(odd){border-right:1px solid #eaf0f8!important;}
+    .syllabus-detail .syllabus-video{padding:18px!important;}
+    .syllabus-detail .syllabus-two-col,.syllabus-detail .syllabus-three-col,.syllabus-detail .syllabus-contact-grid{grid-template-columns:1fr!important;}
+    .syllabus-detail .syllabus-flow{grid-template-columns:repeat(2,1fr)!important;gap:12px!important;}
+    .syllabus-detail .syllabus-year-nav{padding-left:14px!important;padding-right:14px!important;}
+  }
+  @media (min-width:761px) and (max-width:980px){
+    .syllabus-detail .syllabus-facts{grid-template-columns:repeat(3,1fr)!important;}
+    .syllabus-detail .syllabus-flow{grid-template-columns:repeat(4,1fr)!important;}
+    .syllabus-detail .syllabus-three-col{grid-template-columns:1fr 1fr!important;}
+  }
+</style>
+</helmet>
+<div style="font-family:'Noto Sans JP',sans-serif;min-height:100vh;color:#1B2430;display:flex;flex-direction:column;position:relative;">
+
+  <div class="global-header" style="background:#0B2545;color:#fff;padding:10px 32px;display:flex;align-items:center;justify-content:space-between;font-size:13px;">
+    <div style="display:flex;align-items:center;gap:10px;cursor:pointer;" onClick="{{ goDashboard }}">
+      <div style="width:26px;height:26px;border-radius:6px;background:#2E7DD1;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;">N</div>
+      <span style="font-weight:600;letter-spacing:.02em;">長崎大学 学務情報システム</span>
+      <span style="opacity:.55;">NU-Web</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <span style="opacity:.85;">長大 太郎さん/学籍番号00000000</span>
+      <a href="https://lacs.nagasaki-u.ac.jp/ultra/institution-page" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:6px;background:#2E7DD1;color:#fff;border-radius:8px;padding:6px 12px;font-size:12.5px;font-weight:700;text-decoration:none;white-space:nowrap;" style-hover="{{ {background:'#4A93DD',color:'#fff'} }}">LACS を開く ↗</a>
+      <button onClick="{{ openSettings }}" style="display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);color:#fff;border:none;border-radius:8px;padding:6px 12px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap;" style-hover="{{ {background:'rgba(255,255,255,.2)'} }}">⚙️ 詳細設定</button>
+      <a href="#" style="color:#FF9F87;text-decoration:none;font-weight:600;">ログアウト</a>
+    </div>
+  </div>
+
+  <div class="global-nav" style="background:#fff;border-bottom:1px solid #E4E8F0;padding:0 32px;display:flex;align-items:center;gap:2px;position:relative;z-index:30;">
+    <sc-for list="{{ navGroups }}" as="g" hint-placeholder-count="3">
+      <div style="position:relative;">
+        <button onClick="{{ g.onClick }}" style="{{ g.btnStyle }}">
+          <span style="font-size:15px;">{{ g.icon }}</span>{{ g.label }}<span style="{{ g.caretStyle }}">▾</span>
+        </button>
+        <sc-if value="{{ g.open }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;top:100%;left:0;min-width:230px;background:#fff;border:1px solid #E4E8F0;border-radius:12px;box-shadow:0 12px 32px rgba(16,24,40,.14);padding:6px;display:flex;flex-direction:column;">
+            <sc-for list="{{ g.items }}" as="s" hint-placeholder-count="4">
+              <a href="#" onClick="{{ s.onClick }}" style="display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;font-size:13.5px;font-weight:500;color:#28344A;text-decoration:none;white-space:nowrap;" style-hover="{{ {background:'#F1F4F9',color:'#1E5FA8'} }}">
+                <span style="font-size:15px;">{{ s.icon }}</span>{{ s.label }}
+              </a>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+    </sc-for>
+  </div>
+  <sc-if value="{{ anyMenuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:20;" onClick="{{ closeMenus }}"></div>
+  </sc-if>
+
+  <!-- ============ DASHBOARD ============ -->
+  <sc-if value="{{ isDashboard }}" hint-placeholder-val="{{ true }}">
+  <div class="dashboard-main" style="{{ mainWrapStyle }}">
+
+    <div style="margin-bottom:22px;">
+      <div style="font-size:22px;font-weight:800;color:#0B2545;">こんにちは、長大 太郎 さん</div>
+      <div style="font-size:13.5px;color:#8792A3;margin-top:4px;">2026年7月22日（水）・前期</div>
+    </div>
+
+    <div class="dashboard-grid" style="{{ gridStyle }}">
+
+      <div style="display:flex;flex-direction:column;gap:24px;min-width:0;">
+
+        <div style="background:#fff;border-radius:16px;border:1px solid #E4E8F0;box-shadow:0 1px 3px rgba(16,24,40,.04);overflow:hidden;">
+          <div style="padding:20px 24px;border-bottom:1px solid #EEF1F6;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(90deg,#0B2545,#163A6B);">
+            <div>
+              <div style="font-size:11.5px;font-weight:600;color:#9CC3F0;letter-spacing:.06em;">MYスケジュール</div>
+              <h2 style="margin:2px 0 0;font-size:19px;font-weight:800;color:#fff;">今日の授業</h2>
+            </div>
+            <span style="font-size:13px;color:#BFD7F5;">7/22（水）</span>
+          </div>
+          <div style="display:flex;flex-direction:column;">
+            <sc-for list="{{ todayClasses }}" as="c" hint-placeholder-count="4">
+              <div onClick="{{ c.onClick }}" style="display:flex;gap:16px;align-items:center;padding:16px 24px;border-bottom:1px solid #F1F3F8;cursor:pointer;" style-hover="{{ {background:'#F7F9FC'} }}">
+                <div style="width:52px;flex-shrink:0;text-align:center;">
+                  <div style="font-size:19px;font-weight:800;color:#1E5FA8;line-height:1;">{{ c.period }}</div>
+                  <div style="font-size:10.5px;color:#9AA6B8;margin-top:3px;">{{ c.time }}</div>
+                </div>
+                <div style="width:1px;align-self:stretch;background:#EAEDF3;"></div>
+                <div style="min-width:0;flex:1;">
+                  <div style="font-size:15px;font-weight:700;color:#12213D;line-height:1.5;">{{ c.title }}</div>
+                  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:5px;">
+                    <span style="font-size:12.5px;color:#8792A3;">📍 {{ c.room }}</span>
+                    <span style="font-size:11.5px;font-weight:700;color:#1E5FA8;background:#EEF3FB;padding:2px 8px;border-radius:5px;">LACS：{{ c.unitLabel }}</span>
+                    <sc-if value="{{ c.hasTodo }}" hint-placeholder-val="{{ true }}">
+                      <span style="font-size:11.5px;font-weight:700;color:#B42318;background:#FEE2E2;padding:2px 8px;border-radius:5px;">要提出 {{ c.todoCount }}</span>
+                    </sc-if>
+                  </div>
+                </div>
+                <span style="font-size:12.5px;font-weight:700;color:#1E5FA8;white-space:nowrap;">教材を見る →</span>
+              </div>
+            </sc-for>
+          </div>
+          <div style="padding:12px 24px;background:#FAFBFD;display:flex;gap:16px;flex-wrap:wrap;">
+            <a href="#" style="font-size:13px;font-weight:600;text-decoration:none;">週間・月間スケジュールを見る ›</a>
+            <a href="https://lacs.nagasaki-u.ac.jp/ultra/institution-page" target="_blank" rel="noopener" style="font-size:13px;font-weight:600;text-decoration:none;">LACS のコース一覧へ ↗</a>
+          </div>
+        </div>
+
+        <div style="background:#fff;border-radius:16px;border:1px solid #E4E8F0;box-shadow:0 1px 3px rgba(16,24,40,.04);overflow:hidden;">
+          <div style="padding:18px 24px;border-bottom:1px solid #EEF1F6;display:flex;align-items:center;justify-content:space-between;">
+            <h2 style="margin:0;font-size:17px;font-weight:700;color:#0B2545;">掲示<br></h2>
+            <a href="#" style="font-size:13px;font-weight:600;text-decoration:none;">すべて見る ›</a>
+          </div>
+          <div style="display:flex;flex-direction:column;">
+            <sc-for list="{{ notices }}" as="n" hint-placeholder-count="4">
+              <a href="#" style="display:flex;gap:14px;align-items:flex-start;padding:16px 24px;border-bottom:1px solid #F1F3F8;text-decoration:none;color:inherit;" style-hover="{{ {background:'#F7F9FC'} }}">
+                <span style="{{ n.badgeStyle }}">{{ n.badge }}</span>
+                <div style="min-width:0;flex:1;">
+                  <div style="font-size:14.5px;font-weight:600;color:#12213D;line-height:1.5;">{{ n.title }}</div>
+                  <div style="font-size:12px;color:#8792A3;margin-top:4px;">{{ n.date }} ・ {{ n.dept }}</div>
+                </div>
+              </a>
+            </sc-for>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:24px;min-width:0;">
+
+        <div style="background:#fff;border-radius:16px;border:1px solid #E4E8F0;box-shadow:0 1px 3px rgba(16,24,40,.04);padding:22px 24px;">
+          <div style="display:flex;align-items:center;gap:9px;margin-bottom:18px;">
+            <span style="font-size:20px;">🔍</span>
+            <h2 style="margin:0;font-size:17px;font-weight:800;color:#0B2545;">シラバス検索</h2>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <p style="margin:0;font-size:12.5px;color:#8792A3;line-height:1.6;">科目名・教員名・キーワードをまとめて入力して検索できます。</p>
+            <div style="display:flex;align-items:center;gap:8px;border:1.5px solid #D7DCE6;border-radius:12px;padding:12px 14px;" style-focus-within="{{ {borderColor:'#1E5FA8'} }}">
+              <span style="font-size:17px;color:#9AA6B8;">🔍</span>
+              <input placeholder="例：アントレ　経済学　山口" value="{{ query }}" onChange="{{ onQuery }}" onKeyDown="{{ onQuerySubmit }}" style="flex:1;min-width:0;border:none;outline:none;font-size:15px;color:#222;font-family:inherit;background:transparent;">
+            </div>
+            <button onClick="{{ goResults }}" style="background:#1E5FA8;color:#fff;border:none;border-radius:10px;padding:13px;font-size:14.5px;font-weight:700;cursor:pointer;" style-hover="{{ {background:'#164a86'} }}">検索する</button>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding-top:2px;">
+              <span style="font-size:11.5px;color:#9AA6B8;">人気の検索：</span>
+              <sc-for list="{{ popularTags }}" as="t" hint-placeholder-count="4">
+                <button onClick="{{ t.onClick }}" style="font-size:11.5px;background:#F1F4F9;border:none;padding:5px 11px;border-radius:999px;color:#4B5670;cursor:pointer;font-family:inherit;" style-hover="{{ {background:'#E4EBF5',color:'#1E5FA8'} }}">{{ t.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#fff;border-radius:16px;border:1px solid #E4E8F0;box-shadow:0 1px 3px rgba(16,24,40,.04);padding:20px 22px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+            <h3 style="margin:0;font-size:15px;font-weight:800;color:#0B2545;">学年暦カレンダー</h3>
+            <button onClick="{{ goToday }}" style="background:#F1F4F9;border:none;border-radius:7px;padding:4px 10px;font-size:11.5px;font-weight:700;color:#5A6B85;cursor:pointer;font-family:inherit;">今日</button>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin:12px 0;">
+            <button onClick="{{ prevMonth }}" style="background:none;border:none;color:#8792A3;cursor:pointer;font-size:15px;padding:2px 8px;">&larr;</button>
+            <span style="font-size:14.5px;font-weight:700;color:#0B2545;">{{ calLabel }}</span>
+            <button onClick="{{ nextMonth }}" style="background:none;border:none;color:#8792A3;cursor:pointer;font-size:15px;padding:2px 8px;">&rarr;</button>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;font-size:11px;text-align:center;color:#9AA6B8;margin-bottom:6px;">
+            <span>日</span><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;">
+            <sc-for list="{{ calDays }}" as="d" hint-placeholder-count="35">
+              <div style="{{ d.style }}">{{ d.n }}<span style="{{ d.dotStyle }}"></span></div>
+            </sc-for>
+          </div>
+
+          <div style="margin-top:16px;padding-top:14px;border-top:1px solid #F1F3F8;display:flex;flex-direction:column;gap:7px;">
+            <sc-for list="{{ legend }}" as="l" hint-placeholder-count="5">
+              <div style="display:flex;align-items:center;gap:8px;font-size:11.5px;color:#5A6B85;">
+                <span style="{{ l.swatchStyle }}"></span>{{ l.label }}
+              </div>
+            </sc-for>
+          </div>
+
+          <sc-if value="{{ hasMonthEvents }}" hint-placeholder-val="{{ true }}">
+            <div style="margin-top:16px;padding-top:14px;border-top:1px solid #F1F3F8;display:flex;flex-direction:column;gap:11px;">
+              <sc-for list="{{ monthEvents }}" as="e" hint-placeholder-count="2">
+                <div style="display:flex;gap:10px;align-items:stretch;">
+                  <span style="{{ e.barStyle }}"></span>
+                  <div>
+                    <div style="font-size:12.5px;font-weight:700;color:#12213D;line-height:1.5;">{{ e.title }}</div>
+                    <div style="font-size:11.5px;color:#8792A3;margin-top:2px;">{{ e.range }}</div>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+
+        <div style="background:#fff;border-radius:16px;border:1px solid #E4E8F0;box-shadow:0 1px 3px rgba(16,24,40,.04);padding:20px 22px;">
+          <h3 style="margin:0 0 14px;font-size:15px;font-weight:800;color:#0B2545;">次の手続き・締切</h3>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <sc-for list="{{ upcoming }}" as="u" hint-placeholder-count="3">
+              <div style="display:flex;flex-direction:column;gap:5px;align-items:flex-start;">
+                <span style="{{ u.chipStyle }}">{{ u.chipLabel }}</span>
+                <div style="font-size:13px;font-weight:700;color:#12213D;line-height:1.5;">{{ u.title }}</div>
+                <div style="font-size:11.5px;color:#8792A3;">{{ u.range }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ============ SEARCH RESULTS ============ -->
+  <sc-if value="{{ isResults }}" hint-placeholder-val="{{ false }}">
+  <div style="flex:1;padding:24px 32px 48px;max-width:1100px;width:100%;margin:0 auto;box-sizing:border-box;">
+    <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:#8792A3;margin-bottom:16px;">
+      <a href="#" onClick="{{ goDashboard }}" style="text-decoration:none;">HOME</a><span>›</span>
+      <span style="color:#5A6B85;font-weight:600;">シラバス検索結果</span>
+    </div>
+
+    <div style="background:#fff;border-radius:14px;border:1px solid #E4E8F0;box-shadow:0 1px 3px rgba(16,24,40,.04);padding:16px 20px;display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+      <button onClick="{{ goDashboard }}" style="background:none;border:none;color:#8792A3;font-size:16px;cursor:pointer;">←</button>
+      <div style="display:flex;align-items:center;gap:8px;flex:1;border:1.5px solid #E4E8F0;border-radius:10px;padding:9px 12px;background:#FAFBFD;">
+        <span style="color:#9AA6B8;">🔍</span>
+        <input placeholder="科目名・教員名・キーワード" value="{{ query }}" onChange="{{ onQuery }}" style="flex:1;min-width:0;border:none;outline:none;font-size:14.5px;color:#222;font-family:inherit;background:transparent;">
+      </div>
+      <button style="background:#1E5FA8;color:#fff;border:none;border-radius:10px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;">再検索</button>
+    </div>
+
+    <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;">
+      <sc-for list="{{ catTabs }}" as="t" hint-placeholder-count="3">
+        <button onClick="{{ t.onClick }}" style="{{ t.style }}">
+          {{ t.label }}<span style="{{ t.countStyle }}">{{ t.count }}</span>
+        </button>
+      </sc-for>
+    </div>
+
+    <div style="background:#fff;border-radius:12px;border:1px solid #E4E8F0;padding:12px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
+      <span style="font-size:11.5px;font-weight:700;color:#9AA6B8;letter-spacing:.04em;">開講時期でしぼる</span>
+      <sc-for list="{{ termChips }}" as="c" hint-placeholder-count="7">
+        <button onClick="{{ c.onClick }}" style="{{ c.style }}">{{ c.label }}</button>
+      </sc-for>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+      <div style="font-size:14px;color:#4B5670;"><b style="color:#0B2545;">{{ visibleCount }}件</b> の科目が見つかりました</div>
+      <select style="border:1px solid #D7DCE6;border-radius:8px;padding:8px 10px;font-size:12.5px;color:#4B5670;background:#fff;">
+        <option>並び替え：開講時期順</option>
+        <option>並び替え：科目コード順</option>
+      </select>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:26px;">
+      <sc-for list="{{ groupedResults }}" as="grp" hint-placeholder-count="3">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+            <span style="{{ grp.dotStyle }}"></span>
+            <h3 style="margin:0;font-size:15px;font-weight:800;color:#0B2545;">{{ grp.label }}</h3>
+            <span style="font-size:12px;color:#9AA6B8;">{{ grp.countLabel }}</span>
+            <div style="flex:1;height:1px;background:#E4E8F0;"></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <sc-for list="{{ grp.items }}" as="r" hint-placeholder-count="3">
+              <div onClick="{{ r.onClick }}" style="background:#fff;border-radius:14px;border:1px solid #E4E8F0;box-shadow:0 1px 2px rgba(16,24,40,.04);padding:18px 22px;display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;cursor:pointer;transition:box-shadow .12s,border-color .12s;" style-hover="{{ {borderColor:'#B7CEEB',boxShadow:'0 4px 14px rgba(30,95,168,.1)'} }}">
+                <div style="min-width:0;">
+                  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+                    <span style="{{ r.catStyle }}">{{ r.catLabel }}</span>
+                    <span style="{{ r.termStyle }}">{{ r.term }}</span>
+                    <span style="background:#EEF3FB;color:#1E5FA8;font-size:12px;font-weight:700;padding:3px 9px;border-radius:6px;">{{ r.dp }}</span>
+                    <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#9AA6B8;">{{ r.numbering }}</span>
+                  </div>
+                  <div style="font-size:16.5px;font-weight:700;color:#12213D;line-height:1.4;">{{ r.title }}</div>
+                  <div style="font-size:12.5px;color:#8792A3;margin-top:5px;">担当：{{ r.teacher }} ・ {{ r.credits }} ・ 対象 {{ r.year }}</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <span style="font-size:12.5px;font-weight:700;color:#1E5FA8;white-space:nowrap;">シラバスを見る →</span>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+
+    <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+      <div style="background:#fff;border-radius:14px;border:1px dashed #D7DCE6;padding:48px 24px;text-align:center;color:#9AA6B8;font-size:14px;">条件に合う科目がありません。フィルタを変更してください。</div>
+    </sc-if>
+
+    <div style="display:flex;justify-content:center;gap:6px;margin-top:26px;">
+      <sc-for list="{{ pages }}" as="p" hint-placeholder-count="4">
+        <span style="{{ p.style }}">{{ p.n }}</span>
+      </sc-for>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ============ SYLLABUS DETAIL ============ -->
+  <sc-if value="{{ isDetail }}" hint-placeholder-val="{{ false }}">
+  <div class="syllabus-detail" style="flex:1;background:#e8eef7;">
+    <div class="syllabus-topbar" style="max-width:1180px;margin:0 auto;padding:20px 28px 0;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
+      <button onClick="{{ goResults }}" style="font-size:12.5px;font-weight:600;color:#6b7f99;background:none;border:none;cursor:pointer;font-family:inherit;">← 検索結果に戻る</button>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <sc-for list="{{ yearTabs }}" as="t" hint-placeholder-count="2">
+          <button onClick="{{ t.onClick }}" style="{{ t.style }}">{{ t.label }}</button>
+        </sc-for>
+        <button onClick="{{ openCompare }}" style="font-size:12.5px;font-weight:600;color:#fff;background:#12325c;border:none;padding:9px 16px;border-radius:999px;cursor:pointer;font-family:inherit;" style-hover="{{ {background:'#2f6fb5'} }}">元のシラバスと比較</button>
+      </div>
+    </div>
+
+    <div class="syllabus-year-nav" style="max-width:1180px;margin:0 auto;padding:14px 28px 0;display:flex;align-items:center;justify-content:space-between;gap:12px;">
+      <button onClick="{{ prevYear }}" style="{{ prevYearStyle }}">← 前年度</button>
+      <div style="font-size:13px;font-weight:700;color:#1c4f8f;">{{ yearLabel }}</div>
+      <button onClick="{{ nextYear }}" style="{{ nextYearStyle }}">次年度 →</button>
+    </div>
+
+    <div class="syllabus-shell" style="max-width:1180px;margin:0 auto;padding:16px 28px 70px;">
+      <div style="overflow:hidden;padding:0;">
+      <div style="{{ yearTrackStyle }}">
+
+      <sc-for list="{{ syllabusYears }}" as="y" hint-placeholder-count="2">
+        <div style="{{ y.panelStyle }}">
+          <div class="syllabus-hero" style="background:#fff;border:1px solid #cfe0f4;border-radius:18px;padding:26px 30px 22px;position:relative;overflow:hidden;">
+            <div class="syllabus-hero-inner" style="display:flex;gap:24px;align-items:flex-start;">
+              <div class="syllabus-hero-copy" style="min-width:0;flex:1;">
+                <div style="display:inline-flex;align-items:center;border:1.5px solid #2f6fb5;color:#1c4f8f;border-radius:999px;padding:6px 16px;font-size:14px;font-weight:700;margin-bottom:14px;">{{ y.courseTag }}</div>
+                <h1 class="syllabus-hero-title" style="margin:0;font-family:'Hiragino Mincho ProN','Yu Mincho',serif;font-size:38px;font-weight:800;color:#12325c;line-height:1.25;letter-spacing:.01em;">{{ y.title }}</h1>
+                <p style="margin:10px 0 0;font-size:13.5px;color:#6b7f99;">{{ y.titleEn }}</p>
+                <div style="display:inline-block;background:#fdf3c8;border-radius:8px;padding:8px 20px;margin-top:16px;font-size:15px;font-weight:700;color:#5c4a12;">{{ y.catch }}</div>
+              </div>
+              <div class="syllabus-hero-image" style="width:230px;height:150px;flex:none;">
+                <image-slot id="{{ y.slotId }}" shape="rounded" radius="14" placeholder="授業風景のイラストをドロップ"></image-slot>
+              </div>
+            </div>
+          </div>
+
+          <div class="syllabus-video" style="background:#fff;border:1px solid #cfe0f4;border-radius:18px;padding:22px 24px;margin-top:16px;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #eaf0f8;">
+              <span style="font-size:18px;">🎬</span>
+              <h2 style="margin:0;font-size:16px;font-weight:800;color:#1c4f8f;">授業紹介ムービー</h2>
+              <span style="font-size:11.5px;color:#8b9bb1;margin-left:auto;">{{ y.videoNote }}</span>
+            </div>
+            <div style="position:relative;width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#12325c;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;">
+              <span style="width:62px;height:62px;border-radius:50%;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff;">▶</span>
+              <span style="font-size:13.5px;font-weight:700;color:#fff;">授業紹介ムービー（未設定）</span>
+              <span style="font-size:12px;color:#9CC3F0;text-align:center;line-height:1.7;max-width:380px;">動画ファイルまたはYouTubeのURLをいただければ、ここに埋め込みます。</span>
+            </div>
+          </div>
+
+          <div class="syllabus-facts" style="background:#fff;border:1px solid #cfe0f4;border-radius:18px;padding:6px 10px 14px;margin-top:16px;">
+            <div style="display:grid;grid-template-columns:repeat(6,1fr);">
+              <sc-for list="{{ y.facts }}" as="f" hint-placeholder-count="6">
+                <div style="{{ f.cellStyle }}">
+                  <div style="display:flex;align-items:center;justify-content:center;gap:7px;font-size:13px;font-weight:700;color:#2f6fb5;margin-bottom:10px;"><span style="font-size:15px;">{{ f.icon }}</span>{{ f.label }}</div>
+                  <div style="font-size:15px;font-weight:700;color:#23334a;line-height:1.6;text-align:center;white-space:pre-line;">{{ f.value }}</div>
+                  <div style="font-size:11.5px;color:#8b9bb1;text-align:center;margin-top:4px;white-space:pre-line;">{{ f.sub }}</div>
+                </div>
+              </sc-for>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px 2px;flex-wrap:wrap;">
+              <span style="font-size:12.5px;color:#6b7f99;">{{ y.note }}</span>
+              <span style="font-size:12px;font-weight:700;color:#2f6fb5;background:#eaf2fc;border-radius:6px;padding:5px 12px;">{{ y.category }}</span>
+            </div>
+          </div>
+
+          <div class="syllabus-two-col" style="display:grid;grid-template-columns:1fr 1.15fr;gap:16px;margin-top:16px;align-items:start;">
+            <div style="background:#fff;border:1px solid #cfe0f4;border-radius:18px;padding:22px 24px;">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #eaf0f8;"><span style="font-size:18px;">📘</span><h2 style="margin:0;font-size:16px;font-weight:800;color:#1c4f8f;">この授業の概要</h2></div>
+              <p style="margin:0;font-size:14.5px;color:#23334a;line-height:1.95;">{{ y.overview }}</p>
+              <div style="margin-top:18px;background:#fdf1e3;border-radius:12px;padding:16px 18px;font-size:13.5px;color:#5c4a2a;line-height:1.9;">{{ y.support }}</div>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:16px;">
+              <div style="background:#fff;border:1px solid #cfe0f4;border-radius:18px;padding:22px 24px;">
+                <div style="display:flex;align-items:center;gap:9px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #eaf0f8;"><span style="font-size:18px;">🎯</span><h2 style="margin:0;font-size:16px;font-weight:800;color:#1c4f8f;">授業到達目標（DP）</h2></div>
+                <div style="display:flex;flex-direction:column;gap:13px;">
+                  <sc-for list="{{ y.dps }}" as="d" hint-placeholder-count="3">
+                    <div style="display:flex;gap:12px;align-items:flex-start;">
+                      <span style="flex:none;background:#2f6fb5;color:#fff;font-size:12px;font-weight:800;padding:5px 10px;border-radius:7px;">{{ d.code }}</span>
+                      <span style="font-size:14px;color:#23334a;line-height:1.7;">{{ d.text }}</span>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+              <div style="background:#fff;border:1px solid #cfe0f4;border-radius:18px;padding:22px 24px;">
+                <div style="display:flex;align-items:center;gap:9px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #eaf0f8;"><span style="font-size:18px;">💪</span><h2 style="margin:0;font-size:16px;font-weight:800;color:#1c4f8f;">この授業で身につく力</h2></div>
+                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;">
+                  <sc-for list="{{ y.skills }}" as="s" hint-placeholder-count="4">
+                    <div style="border:1px solid #dfe9f6;border-radius:12px;padding:14px 8px;text-align:center;background:#fbfdff;">
+                      <div style="font-size:24px;line-height:1;margin-bottom:9px;">{{ s.icon }}</div>
+                      <div style="font-size:12.5px;font-weight:700;color:#23334a;line-height:1.5;">{{ s.label }}</div>
+                      <div style="font-size:10.5px;color:#8b9bb1;margin-top:3px;">{{ s.en }}</div>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="background:#fff;border:1px solid #cfe0f4;border-radius:18px;padding:22px 24px;margin-top:16px;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid #eaf0f8;"><span style="font-size:18px;">📝</span><h2 style="margin:0;font-size:16px;font-weight:800;color:#1c4f8f;">授業の流れ（全{{ y.sessionCount }}回）</h2></div>
+            <div class="syllabus-flow" style="display:grid;grid-template-columns:repeat(8,1fr);gap:10px;">
+              <sc-for list="{{ y.flow }}" as="w" hint-placeholder-count="8">
+                <div style="display:flex;flex-direction:column;gap:8px;">
+                  <div style="{{ w.chipStyle }}">{{ w.label }}</div>
+                  <div style="font-size:10.5px;color:#8b9bb1;text-align:center;">{{ w.date }}</div>
+                  <div style="border:1px solid #dfe9f6;border-radius:12px;padding:12px 8px;background:#fbfdff;flex:1;display:flex;flex-direction:column;align-items:center;gap:9px;">
+                    <span style="font-size:22px;line-height:1;">{{ w.icon }}</span>
+                    <span style="font-size:11.5px;color:#23334a;line-height:1.6;text-align:center;white-space:pre-line;">{{ w.text }}</span>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+
+          <div class="syllabus-three-col" style="display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:16px;margin-top:16px;align-items:start;">
+            <div style="background:#fff;border:1px solid #cfe0f4;border-radius:18px;padding:22px 24px;">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #eaf0f8;"><span style="font-size:18px;">👥</span><h2 style="margin:0;font-size:16px;font-weight:800;color:#1c4f8f;">授業の進め方</h2></div>
+              <div style="display:flex;flex-direction:column;gap:12px;">
+                <sc-for list="{{ y.methods }}" as="m" hint-placeholder-count="3">
+                  <div style="display:flex;gap:11px;align-items:flex-start;">
+                    <span style="flex:none;background:#2f6fb5;color:#fff;font-size:11.5px;font-weight:800;width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;">{{ m.code }}</span>
+                    <span style="font-size:13.5px;color:#23334a;line-height:1.7;">{{ m.text }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+
+            <div style="background:#fff;border:1px solid #cfe0f4;border-radius:18px;padding:22px 24px;">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #eaf0f8;"><span style="font-size:18px;">📊</span><h2 style="margin:0;font-size:16px;font-weight:800;color:#1c4f8f;">成績評価の方法</h2></div>
+              <div style="display:flex;align-items:center;gap:18px;">
+                <div style="{{ y.pieStyle }}"></div>
+                <div style="display:flex;flex-direction:column;gap:12px;min-width:0;">
+                  <sc-for list="{{ y.grading }}" as="g" hint-placeholder-count="2">
+                    <div style="display:flex;gap:9px;align-items:flex-start;">
+                      <span style="{{ g.dotStyle }}"></span>
+                      <div>
+                        <div style="font-size:13px;font-weight:700;color:#23334a;">{{ g.label }}<span style="color:#2f6fb5;margin-left:6px;">{{ g.pct }}</span></div>
+                        <div style="font-size:11px;color:#8b9bb1;margin-top:2px;">{{ g.note }}</div>
+                      </div>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+            </div>
+
+            <div style="background:#fff;border:1px solid #cfe0f4;border-radius:18px;padding:22px 24px;">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #eaf0f8;"><span style="font-size:18px;">📄</span><h2 style="margin:0;font-size:16px;font-weight:800;color:#1c4f8f;">教材・資料</h2></div>
+              <p style="margin:0;font-size:13.5px;color:#23334a;line-height:1.9;">{{ y.materials }}</p>
+            </div>
+          </div>
+
+          <div class="syllabus-three-col" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:16px;align-items:start;">
+            <div style="background:#fff;border:1px solid #cfe0f4;border-radius:18px;padding:22px 24px;">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #eaf0f8;"><span style="font-size:18px;">📖</span><h2 style="margin:0;font-size:16px;font-weight:800;color:#1c4f8f;">事前・事後学修</h2></div>
+              <div style="display:flex;flex-direction:column;gap:16px;">
+                <div>
+                  <div style="font-size:13px;font-weight:800;color:#2f6fb5;margin-bottom:6px;">事前学習（2h）</div>
+                  <div style="font-size:13px;color:#23334a;line-height:1.8;">{{ y.pre }}</div>
+                </div>
+                <div>
+                  <div style="font-size:13px;font-weight:800;color:#2f6fb5;margin-bottom:6px;">事後学習（2h）</div>
+                  <div style="font-size:13px;color:#23334a;line-height:1.8;">{{ y.post }}</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="background:#fff;border:1px solid #cfe0f4;border-radius:18px;padding:22px 24px;">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #eaf0f8;"><span style="font-size:18px;">🏷️</span><h2 style="margin:0;font-size:16px;font-weight:800;color:#1c4f8f;">キーワード</h2></div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                <sc-for list="{{ y.keywords }}" as="k" hint-placeholder-count="8">
+                  <span style="font-size:12.5px;color:#23334a;background:#eaf2fc;border:1px solid #dfe9f6;border-radius:999px;padding:6px 13px;">{{ k }}</span>
+                </sc-for>
+              </div>
+            </div>
+
+            <div style="background:#fff;border:1px solid #cfe0f4;border-radius:18px;padding:22px 24px;">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #eaf0f8;"><span style="font-size:18px;">✅</span><h2 style="margin:0;font-size:16px;font-weight:800;color:#1c4f8f;">受講要件（履修条件）</h2></div>
+              <p style="margin:0;font-size:13.5px;color:#23334a;line-height:1.9;">{{ y.requirement }}</p>
+            </div>
+          </div>
+
+          <div class="syllabus-contact-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;align-items:start;">
+            <div style="background:#fff;border:1px solid #cfe0f4;border-radius:18px;padding:22px 24px;">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #eaf0f8;"><span style="font-size:18px;">✉️</span><h2 style="margin:0;font-size:16px;font-weight:800;color:#1c4f8f;">教員・連絡先</h2></div>
+              <div style="display:flex;flex-direction:column;gap:11px;font-size:13px;color:#23334a;line-height:1.7;">
+                <div><b style="color:#2f6fb5;">E-mail</b>　{{ y.email }}</div>
+                <div><b style="color:#2f6fb5;">研究室</b>　{{ y.office }}</div>
+                <div><b style="color:#2f6fb5;">オフィスアワー</b>　{{ y.hours }}</div>
+              </div>
+            </div>
+            <div style="background:#fff;border:1px solid #cfe0f4;border-radius:18px;padding:22px 24px;">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #eaf0f8;"><span style="font-size:18px;">💙</span><h2 style="margin:0;font-size:16px;font-weight:800;color:#1c4f8f;">アクセシビリティ</h2></div>
+              <p style="margin:0 0 10px;font-size:13px;color:#23334a;line-height:1.85;">何か配慮が必要な場合は、アシスト広場（障がい学生支援室）へご相談ください。</p>
+              <div style="font-size:12px;color:#6b7f99;line-height:1.8;">TEL 095-819-2006　FAX 095-819-2948<br/>E-MAIL support@ml.nagasaki-u.ac.jp</div>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+      </div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+
+  <!-- ============ LACS COURSE ============ -->
+  <sc-if value="{{ isLacs }}" hint-placeholder-val="{{ false }}">
+  <div style="flex:1;">
+    <div style="max-width:1180px;margin:0 auto;padding:20px 32px 0;display:flex;align-items:center;gap:10px;font-size:13px;color:#8792A3;">
+      <a href="#" onClick="{{ goDashboard }}" style="text-decoration:none;">HOME</a><span>›</span>
+      <span style="color:#5A6B85;font-weight:600;">今日の授業 ／ LACS 連携</span>
+    </div>
+
+    <div style="max-width:1180px;margin:0 auto;padding:14px 32px 0;">
+      <div style="background:#EEF3FB;border:1px solid #CFE1F7;border-radius:12px;padding:12px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-size:11.5px;font-weight:800;color:#1E5FA8;background:#fff;padding:4px 9px;border-radius:6px;">SSO 連携済み</span>
+        <span style="font-size:12.5px;color:#4B5670;">NU-Web のログイン情報でそのまま LACS のコースを表示しています。</span>
+        <a href="{{ lacsUrl }}" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:700;text-decoration:none;margin-left:auto;white-space:nowrap;">LACS 本体で開く ↗</a>
+      </div>
+    </div>
+
+    <div style="background:#0F1D2E;color:#fff;margin-top:18px;">
+      <div style="max-width:1180px;margin:0 auto;padding:0 32px;">
+        <div style="display:flex;align-items:center;gap:14px;padding:14px 0;font-size:13.5px;color:#AFC0D4;">
+          <button onClick="{{ goDashboard }}" style="background:rgba(255,255,255,.1);border:none;color:#fff;border-radius:7px;padding:6px 11px;font-size:12.5px;cursor:pointer;font-family:inherit;">← NU-Web</button>
+          <span style="opacity:.5;">|</span>
+          <span style="color:#fff;font-weight:600;">{{ lacsCourse.title }}</span>
+          <span style="margin-left:auto;font-size:11.5px;font-weight:700;background:#2E7DD1;padding:3px 10px;border-radius:5px;">公開</span>
+        </div>
+        <div style="display:flex;gap:26px;overflow-x:auto;">
+          <sc-for list="{{ lacsTabs }}" as="t" hint-placeholder-count="6">
+            <button onClick="{{ t.onClick }}" style="{{ t.style }}">{{ t.label }}<sc-if value="{{ t.hasBadge }}" hint-placeholder-val="{{ false }}"><span style="margin-left:7px;font-size:11px;font-weight:800;background:#2E7DD1;color:#fff;padding:2px 7px;border-radius:999px;">{{ t.badge }}</span></sc-if></button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="height:150px;background:linear-gradient(160deg,#12283F,#0B1B2C 60%,#16344F);display:flex;align-items:flex-end;">
+        <div style="max-width:1180px;width:100%;margin:0 auto;padding:0 32px 22px;">
+          <div style="font-size:26px;font-weight:700;">{{ lacsCourse.title }}</div>
+          <div style="font-size:12.5px;color:#9CC3F0;margin-top:6px;">{{ lacsCourse.meta }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="max-width:1180px;margin:0 auto;padding:26px 32px 60px;display:grid;grid-template-columns:1fr 320px;gap:24px;align-items:start;">
+
+      <div style="min-width:0;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+          <h2 style="margin:0;font-size:18px;font-weight:800;color:#0B2545;">コースコンテンツ</h2>
+          <span style="font-size:12px;color:#9AA6B8;">全 {{ unitCount }} 回</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <sc-for list="{{ lacsUnits }}" as="u" hint-placeholder-count="5">
+            <div style="{{ u.cardStyle }}">
+              <div onClick="{{ u.onClick }}" style="display:flex;align-items:center;gap:14px;padding:16px 20px;cursor:pointer;">
+                <span style="{{ u.iconStyle }}">{{ u.icon }}</span>
+                <div style="min-width:0;flex:1;">
+                  <div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;">
+                    <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#9AA6B8;">{{ u.no }}</span>
+                    <span style="font-size:15px;font-weight:700;color:#12213D;">{{ u.title }}</span>
+                    <sc-if value="{{ u.isToday }}" hint-placeholder-val="{{ false }}">
+                      <span style="font-size:11px;font-weight:800;color:#fff;background:#1E5FA8;padding:3px 9px;border-radius:5px;">本日の回</span>
+                    </sc-if>
+                  </div>
+                  <div style="font-size:12px;color:#8792A3;margin-top:4px;">{{ u.summary }}</div>
+                </div>
+                <span style="{{ u.caretStyle }}">▾</span>
+              </div>
+              <sc-if value="{{ u.open }}" hint-placeholder-val="{{ false }}">
+                <div style="border-top:1px solid #F1F3F8;padding:6px 20px 14px;display:flex;flex-direction:column;">
+                  <sc-for list="{{ u.items }}" as="it" hint-placeholder-count="3">
+                    <a href="{{ lacsUrl }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;padding:12px 8px;border-bottom:1px solid #F7F9FC;text-decoration:none;color:inherit;border-radius:8px;" style-hover="{{ {background:'#F7F9FC'} }}">
+                      <span style="{{ it.badgeStyle }}">{{ it.kind }}</span>
+                      <div style="min-width:0;flex:1;">
+                        <div style="font-size:13.5px;font-weight:600;color:#12213D;">{{ it.title }}</div>
+                        <div style="font-size:11.5px;color:#9AA6B8;margin-top:3px;">{{ it.note }}</div>
+                      </div>
+                      <span style="{{ it.stateStyle }}">{{ it.state }}</span>
+                    </a>
+                  </sc-for>
+                </div>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div style="background:#fff;border-radius:14px;border:1px solid #E4E8F0;box-shadow:0 1px 3px rgba(16,24,40,.04);padding:20px 22px;">
+          <h3 style="margin:0 0 14px;font-size:14.5px;font-weight:800;color:#0B2545;">締切が近い課題</h3>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <sc-for list="{{ lacsDeadlines }}" as="d" hint-placeholder-count="2">
+              <div style="display:flex;gap:12px;align-items:flex-start;">
+                <span style="{{ d.barStyle }}"></span>
+                <div>
+                  <div style="font-size:13px;font-weight:700;color:#12213D;line-height:1.5;">{{ d.title }}</div>
+                  <div style="font-size:11.5px;color:#8792A3;margin-top:3px;">{{ d.due }}</div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="background:#fff;border-radius:14px;border:1px solid #E4E8F0;box-shadow:0 1px 3px rgba(16,24,40,.04);padding:20px 22px;">
+          <h3 style="margin:0 0 14px;font-size:14.5px;font-weight:800;color:#0B2545;">コースの教職員</h3>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <sc-for list="{{ lacsStaff }}" as="s" hint-placeholder-count="2">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <span style="width:38px;height:38px;flex:none;border-radius:50%;background:#0B2545;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;">{{ s.initial }}</span>
+                <div>
+                  <div style="font-size:13.5px;font-weight:700;color:#12213D;">{{ s.name }}</div>
+                  <div style="font-size:11.5px;color:#8792A3;margin-top:2px;">{{ s.role }}</div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="background:#fff;border-radius:14px;border:1px solid #E4E8F0;box-shadow:0 1px 3px rgba(16,24,40,.04);padding:20px 22px;">
+          <h3 style="margin:0 0 12px;font-size:14.5px;font-weight:800;color:#0B2545;">出欠・ツール</h3>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;align-items:baseline;gap:8px;">
+              <span style="font-size:24px;font-weight:800;color:#12805C;">14</span>
+              <span style="font-size:12.5px;color:#5A6B85;">/ 15 回 出席（欠席1）</span>
+            </div>
+            <div style="height:7px;border-radius:999px;background:#EEF1F6;overflow:hidden;"><div style="height:100%;width:93%;background:#2E9C74;border-radius:999px;"></div></div>
+            <a href="{{ lacsUrl }}" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;text-decoration:none;margin-top:4px;">自分の出席を表示 ↗</a>
+            <a href="{{ lacsUrl }}" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;text-decoration:none;">外部ツールを表示 ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ============ CAREER DIAGNOSTIC ============ -->
+  <sc-if value="{{ isCareer }}" hint-placeholder-val="{{ false }}">
+  <div style="flex:1;padding:24px 32px 60px;max-width:900px;width:100%;margin:0 auto;box-sizing:border-box;">
+    <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:#8792A3;margin-bottom:16px;">
+      <a href="#" onClick="{{ goDashboard }}" style="text-decoration:none;">HOME</a><span>›</span>
+      <span style="color:#5A6B85;font-weight:600;">キャリア・国際 ／ 自己分析診断</span>
+    </div>
+
+    <div style="background:linear-gradient(120deg,#0B2545,#1E5FA8);border-radius:18px;padding:32px 34px;color:#fff;margin-bottom:24px;">
+      <div style="font-size:11.5px;font-weight:700;letter-spacing:.1em;color:#9CC3F0;margin-bottom:8px;">CAREER × SYLLABUS MATCHING</div>
+      <h1 style="margin:0 0 10px;font-size:28px;font-weight:800;line-height:1.35;">自己分析診断で、自分に合う授業を見つける</h1>
+      <p style="margin:0;font-size:14px;color:#CFE1F7;line-height:1.75;max-width:560px;">6つの質問に答えると、あなたの志向タイプを判定し、シラバスから相性の良い科目とキャリアの方向性を提案します。所要時間およそ2分。</p>
+    </div>
+
+    <sc-if value="{{ quizActive }}" hint-placeholder-val="{{ true }}">
+      <div style="background:#fff;border-radius:16px;border:1px solid #E4E8F0;box-shadow:0 1px 3px rgba(16,24,40,.04);padding:30px 34px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+          <span style="font-size:12.5px;font-weight:700;color:#1E5FA8;">質問 {{ qNum }} / {{ qTotal }}</span>
+          <span style="font-size:12.5px;color:#9AA6B8;">{{ qPercentLabel }}</span>
+        </div>
+        <div style="height:6px;border-radius:999px;background:#EEF1F6;overflow:hidden;margin-bottom:26px;">
+          <div style="{{ progressStyle }}"></div>
+        </div>
+        <h2 style="margin:0 0 22px;font-size:20px;font-weight:700;color:#12213D;line-height:1.5;">{{ currentQuestion }}</h2>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <sc-for list="{{ currentChoices }}" as="c" hint-placeholder-count="4">
+            <button onClick="{{ c.onClick }}" style="display:flex;align-items:center;gap:14px;text-align:left;padding:16px 18px;border-radius:12px;border:1.5px solid #E4E8F0;background:#fff;color:#28344A;font-size:14.5px;font-weight:600;cursor:pointer;font-family:inherit;transition:border-color .12s,background .12s;" style-hover="{{ {borderColor:'#1E5FA8',background:'#F7FAFE'} }}">
+              <span style="width:26px;height:26px;flex:none;border-radius:50%;background:#EEF3FB;color:#1E5FA8;font-size:12.5px;font-weight:800;display:flex;align-items:center;justify-content:center;">{{ c.key }}</span>
+              {{ c.label }}
+            </button>
+          </sc-for>
+        </div>
+        <div style="margin-top:22px;display:flex;gap:12px;">
+          <button onClick="{{ prevQuestion }}" style="background:#fff;color:#5A6B85;border:1px solid #D7DCE6;border-radius:9px;padding:10px 18px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;">← 前の質問</button>
+          <button onClick="{{ resetQuiz }}" style="background:none;border:none;color:#9AA6B8;font-size:13px;cursor:pointer;font-family:inherit;">最初からやり直す</button>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ quizDone }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-direction:column;gap:20px;">
+
+        <div style="background:#fff;border-radius:16px;border:1px solid #E4E8F0;box-shadow:0 1px 3px rgba(16,24,40,.04);padding:30px 34px;">
+          <div style="font-size:11.5px;font-weight:700;letter-spacing:.08em;color:#A97C1F;margin-bottom:10px;">あなたの志向タイプ</div>
+          <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;">
+            <div style="width:66px;height:66px;border-radius:50%;background:#0B2545;color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;flex:none;">{{ resultIcon }}</div>
+            <div style="min-width:0;">
+              <div style="font-size:24px;font-weight:800;color:#0B2545;">{{ resultTitle }}</div>
+              <div style="font-size:13.5px;color:#5A6B85;margin-top:5px;line-height:1.7;max-width:520px;">{{ resultDesc }}</div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:11px;margin-top:24px;padding-top:22px;border-top:1px solid #F1F3F8;">
+            <sc-for list="{{ axes }}" as="a" hint-placeholder-count="4">
+              <div style="display:grid;grid-template-columns:130px 1fr 44px;align-items:center;gap:12px;">
+                <span style="font-size:12.5px;font-weight:600;color:#4B5670;">{{ a.label }}</span>
+                <div style="height:8px;border-radius:999px;background:#EEF1F6;overflow:hidden;"><div style="{{ a.barStyle }}"></div></div>
+                <span style="font-size:12px;font-weight:700;color:#1E5FA8;text-align:right;">{{ a.pct }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="background:#fff;border-radius:16px;border:1px solid #E4E8F0;box-shadow:0 1px 3px rgba(16,24,40,.04);overflow:hidden;">
+          <div style="padding:18px 24px;border-bottom:1px solid #EEF1F6;display:flex;align-items:center;justify-content:space-between;">
+            <h2 style="margin:0;font-size:17px;font-weight:700;color:#0B2545;">相性の良い授業</h2>
+            <span style="font-size:12px;color:#9AA6B8;">開講時期ごと・マッチ度順</span>
+          </div>
+          <div style="display:flex;flex-direction:column;">
+            <sc-for list="{{ matchGroups }}" as="grp" hint-placeholder-count="2">
+              <div>
+                <div style="display:flex;align-items:center;gap:10px;padding:13px 24px;background:#FAFBFD;border-bottom:1px solid #F1F3F8;">
+                  <span style="{{ grp.dotStyle }}"></span>
+                  <span style="font-size:13.5px;font-weight:800;color:#0B2545;">{{ grp.label }}</span>
+                  <span style="font-size:11.5px;color:#9AA6B8;">{{ grp.countLabel }}</span>
+                </div>
+                <sc-for list="{{ grp.items }}" as="m" hint-placeholder-count="3">
+                  <div onClick="{{ m.onClick }}" style="display:grid;grid-template-columns:56px 1fr auto;gap:16px;align-items:center;padding:18px 24px;border-bottom:1px solid #F1F3F8;cursor:pointer;" style-hover="{{ {background:'#F7F9FC'} }}">
+                    <div style="{{ m.ringStyle }}">{{ m.score }}</div>
+                    <div style="min-width:0;">
+                      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+                        <span style="{{ m.termStyle }}">{{ m.term }}</span>
+                        <sc-if value="{{ m.hasDay }}" hint-placeholder-val="{{ true }}">
+                          <span style="background:#EEF3FB;color:#1E5FA8;font-size:12px;font-weight:700;padding:3px 9px;border-radius:6px;">{{ m.day }}</span>
+                        </sc-if>
+                        <span style="font-size:11.5px;color:#9AA6B8;">{{ m.credits }}</span>
+                      </div>
+                      <div style="font-size:15.5px;font-weight:700;color:#12213D;">{{ m.title }}</div>
+                      <div style="font-size:12.5px;color:#8792A3;margin-top:4px;">担当：{{ m.teacher }}</div>
+                      <div style="font-size:12.5px;color:#4B5670;margin-top:7px;line-height:1.6;">{{ m.why }}</div>
+                    </div>
+                    <span style="font-size:12.5px;font-weight:700;color:#1E5FA8;white-space:nowrap;">シラバス →</span>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="background:#fff;border-radius:16px;border:1px solid #E4E8F0;box-shadow:0 1px 3px rgba(16,24,40,.04);padding:24px 28px;">
+          <h2 style="margin:0 0 14px;font-size:17px;font-weight:700;color:#0B2545;">キャリアの方向性</h2>
+          <div style="display:flex;flex-wrap:wrap;gap:9px;margin-bottom:18px;">
+            <sc-for list="{{ careerTags }}" as="t" hint-placeholder-count="4">
+              <span style="font-size:12.5px;font-weight:600;padding:7px 14px;border-radius:999px;background:#EEF3FB;color:#1E5FA8;">{{ t }}</span>
+            </sc-for>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <a href="preparing.html" target="_blank" rel="noopener" style="font-size:13px;font-weight:600;text-decoration:none;">就職・進路の相談を予約する &rsaquo;</a>
+            <a href="preparing.html" target="_blank" rel="noopener" style="font-size:13px;font-weight:600;text-decoration:none;">海外渡航・留学プログラムを見る &rsaquo;</a>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;">
+          <button onClick="{{ resetQuiz }}" style="background:#fff;color:#5A6B85;border:1px solid #D7DCE6;border-radius:10px;padding:12px 22px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;">もう一度診断する</button>
+          <button onClick="{{ goResults }}" style="background:#1E5FA8;color:#fff;border:none;border-radius:10px;padding:12px 22px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;">シラバスを自分で検索する</button>
+        </div>
+      </div>
+    </sc-if>
+  </div>
+  </sc-if>
+
+  <!-- ============ COMPARE OVERLAY ============ -->
+  <sc-if value="{{ compareOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;background:rgba(28,42,68,.55);display:flex;align-items:center;justify-content:center;padding:24px;z-index:60;" onClick="{{ closeCompare }}">
+      <div style="background:#eae6d8;max-width:640px;width:100%;max-height:82vh;overflow:auto;border:1px solid #c9c0a2;padding:26px;box-shadow:0 20px 60px rgba(0,0,0,.35);" onClick="{{ stop }}">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:14px;">
+          <div style="font-size:13px;font-weight:700;color:#6b5f3f;letter-spacing:.03em;">元のシラバス形式<small style="display:block;font-weight:400;color:#8a7f5f;font-size:11px;margin-top:2px;">大学システムから出力される標準フォーマット</small></div>
+          <button onClick="{{ closeCompare }}" style="background:none;border:1px solid #8a7f5f;color:#5a5138;border-radius:999px;width:28px;height:28px;cursor:pointer;font-size:14px;line-height:1;flex:none;">×</button>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;line-height:1.55;white-space:pre-wrap;color:#4a4530;background:#f6f2e4;border:1px solid #ded4ab;padding:14px;">学期／Semester 2026年度／Academic Year　前期／First Semester
+曜日・校時／Day・Period 木／Thu 3
+開講期間／Course duration 2026/04/01～2026/09/28
+必修選択／Required・Elective 選択／elective
+単位数(一般/編入/留学)／Credits 2.0/2.0/2.0
+時間割コード 20261517001901　科目番号 15170019
+科目ナンバリングコード ECMC 11101_038
+授業科目名 経済概論（令和５年度以降入学者対象）
+編集担当教員 山口 純哉／授業担当教員名（科目責任者） 山口 純哉
+科目分類 学部導入科目, 学部モジュール科目, 他学部開講科目
+対象年次 1, 2, 3, 4　講義形態 講義／Lecture
+教室 ［経済］経済学部講堂
+■汎用的能力 □倫理観 □多様性の理解 □主体性 □協働性
+■国際・地域社会への関心
+成績評価の方法・基準等 期末試験（100％）。60点以上を合格とする。
+　　　　　　　　　　　　［1つの巨大な表に全項目が縦一列に格納されている］</div>
+        <p style="font-size:11.5px;color:#7a6f4d;margin-top:14px;">— 項目がすべて縦一列で並び、太字や余白による優先順位がなく、日英が常に併記されるため、要点（曜日・単位・評価方法など）を拾うのに時間がかかる。</p>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ============ SETTINGS DRAWER ============ -->
+  <sc-if value="{{ settingsOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;background:rgba(11,37,69,.4);z-index:40;" onClick="{{ closeSettings }}"></div>
+    <div style="position:fixed;top:0;right:0;bottom:0;width:380px;max-width:90vw;background:#fff;z-index:50;box-shadow:-8px 0 30px rgba(16,24,40,.15);display:flex;flex-direction:column;">
+      <div style="padding:20px 24px;border-bottom:1px solid #EEF1F6;display:flex;align-items:center;justify-content:space-between;">
+        <h2 style="margin:0;font-size:18px;font-weight:800;color:#0B2545;">⚙️ 詳細設定</h2>
+        <button onClick="{{ closeSettings }}" style="background:none;border:none;font-size:22px;color:#9AA6B8;cursor:pointer;line-height:1;">×</button>
+      </div>
+      <div style="flex:1;overflow-y:auto;padding:22px 24px;display:flex;flex-direction:column;gap:26px;">
+        <div>
+          <h3 style="margin:0 0 12px;font-size:14px;font-weight:700;color:#12213D;">編集・書き込み</h3>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <div><div style="font-size:13.5px;font-weight:600;color:#28344A;">編集モード</div><div style="font-size:11.5px;color:#9AA6B8;">ウィジェットの並び替え・表示切替</div></div>
+              <div onClick="{{ () =&gt; toggle('editMode') }}" style="{{ toggleTrack('editMode') }}"><div style="{{ toggleKnob('editMode') }}"></div></div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <div><div style="font-size:13.5px;font-weight:600;color:#28344A;">メモの書き込み</div><div style="font-size:11.5px;color:#9AA6B8;">スケジュールに手書きメモを追加</div></div>
+              <div onClick="{{ () =&gt; toggle('memo') }}" style="{{ toggleTrack('memo') }}"><div style="{{ toggleKnob('memo') }}"></div></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 style="margin:0 0 12px;font-size:14px;font-weight:700;color:#12213D;">文字の大きさ</h3>
+          <div style="display:flex;gap:8px;">
+            <sc-for list="{{ fontSizes }}" as="f" hint-placeholder-count="3">
+              <button onClick="{{ f.onClick }}" style="{{ f.style }}">{{ f.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div>
+          <h3 style="margin:0 0 12px;font-size:14px;font-weight:700;color:#12213D;">レイアウト</h3>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <sc-for list="{{ layouts }}" as="l" hint-placeholder-count="3">
+              <button onClick="{{ l.onClick }}" style="{{ l.style }}"><span style="font-size:13.5px;font-weight:600;">{{ l.label }}</span><span style="font-size:11.5px;color:#9AA6B8;">{{ l.desc }}</span></button>
+            </sc-for>
+          </div>
+        </div>
+        <div>
+          <h3 style="margin:0 0 12px;font-size:14px;font-weight:700;color:#12213D;">イラスト・図や写真</h3>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <div><div style="font-size:13.5px;font-weight:600;color:#28344A;">イラストを表示</div><div style="font-size:11.5px;color:#9AA6B8;">アイコンや挿絵で見やすく</div></div>
+              <div onClick="{{ () =&gt; toggle('illust') }}" style="{{ toggleTrack('illust') }}"><div style="{{ toggleKnob('illust') }}"></div></div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <div><div style="font-size:13.5px;font-weight:600;color:#28344A;">図や写真を表示</div><div style="font-size:11.5px;color:#9AA6B8;">お知らせの画像を表示</div></div>
+              <div onClick="{{ () =&gt; toggle('media') }}" style="{{ toggleTrack('media') }}"><div style="{{ toggleKnob('media') }}"></div></div>
+            </div>
+            <label style="display:flex;flex-direction:column;gap:6px;font-size:12.5px;color:#4B5670;font-weight:600;margin-top:4px;">ジャンル（配色テーマ）
+              <select style="border:1px solid #D7DCE6;border-radius:9px;padding:10px 12px;font-size:13.5px;color:#222;background:#fff;font-family:inherit;"><option>スタンダード（ネイビー）</option><option>ナチュラル（グリーン）</option><option>ソフト（パステル）</option><option>ハイコントラスト</option></select>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div style="padding:16px 24px;border-top:1px solid #EEF1F6;display:flex;gap:10px;">
+        <button onClick="{{ closeSettings }}" style="flex:1;background:#1E5FA8;color:#fff;border:none;border-radius:10px;padding:12px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;">設定を保存</button>
+        <button onClick="{{ closeSettings }}" style="background:#fff;color:#5A6B85;border:1px solid #D7DCE6;border-radius:10px;padding:12px 18px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;">閉じる</button>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    view: 'dashboard',
+    openMenu: null, qIndex: 0, answers: [],
+    resFilter: { cat: 'all', term: 'all' },
+    calY: 2026, calM: 7, query: '',
+    lacsCourse: 'joho', openUnit: '03', yearIdx: 0,
+    settingsOpen: false, compareOpen: false,
+    fontSize: 'M', layout: 'standard',
+    editMode: false, memo: false, illust: true, media: true,
+  };
+
+  navDefs = [
+    { id: 'gakushu', icon: '📚', label: '学修', items: [
+      { icon: '📝', label: '履修登録', prepare: true }, { icon: '📊', label: '成績照会', prepare: true },
+      { icon: '🎓', label: 'LACS（授業教材）', go: 'lacs' },
+      { icon: '🗓️', label: '休講・補講', prepare: true }, { icon: '🔍', label: 'シラバス検索', go: 'results' },
+    ]},
+    { id: 'seikatsu', icon: '🏫', label: '学生生活', items: [
+      { icon: '👤', label: '学生情報', prepare: true }, { icon: '📌', label: '掲示・お知らせ', prepare: true },
+      { icon: '⚡', label: '緊急連絡', prepare: true },
+    ]},
+    { id: 'career', icon: '🌏', label: 'キャリア・国際', items: [
+      { icon: '🧭', label: '自己分析診断', go: 'career' },
+      { icon: '💼', label: '就職・進路', prepare: true },
+      { icon: '✈️', label: '海外渡航・留学', prepare: true },
+    ]},
+  ];
+
+  questions = [
+    { q: '大学での学びで、いちばん手応えを感じるのはどんなときですか？', choices: [
+      { key: 'A', label: '数字やデータで筋道を立てて説明できたとき', axis: 'analysis' },
+      { key: 'B', label: '人と話し合って、考えがまとまったとき', axis: 'people' },
+      { key: 'C', label: '知らない世界や文化に触れたとき', axis: 'global' },
+      { key: 'D', label: '自分のアイデアを形にできたとき', axis: 'create' },
+    ]},
+    { q: 'グループワークでは、自然とどの役回りになりますか？', choices: [
+      { key: 'A', label: '調べて資料をまとめる', axis: 'analysis' },
+      { key: 'B', label: '意見を引き出して調整する', axis: 'people' },
+      { key: 'C', label: '外部や他大学とやり取りする', axis: 'global' },
+      { key: 'D', label: '企画のたたき台を出す', axis: 'create' },
+    ]},
+    { q: '興味のあるニュースはどれに近いですか？', choices: [
+      { key: 'A', label: '景気・物価・金融政策', axis: 'analysis' },
+      { key: 'B', label: '働き方・地域社会・福祉', axis: 'people' },
+      { key: 'C', label: '国際情勢・貿易・開発援助', axis: 'global' },
+      { key: 'D', label: 'スタートアップ・新サービス', axis: 'create' },
+    ]},
+    { q: '授業の評価方法として、力を発揮しやすいのは？', choices: [
+      { key: 'A', label: '期末試験・レポート', axis: 'analysis' },
+      { key: 'B', label: 'ディスカッション参加', axis: 'people' },
+      { key: 'C', label: 'フィールド調査・現地レポート', axis: 'global' },
+      { key: 'D', label: '成果物のプレゼン', axis: 'create' },
+    ]},
+    { q: '卒業後、まず思い浮かぶ進路は？', choices: [
+      { key: 'A', label: '金融・コンサル・専門職', axis: 'analysis' },
+      { key: 'B', label: '公務員・教育・地域企業', axis: 'people' },
+      { key: 'C', label: '商社・国際機関・海外勤務', axis: 'global' },
+      { key: 'D', label: '起業・企画職・IT', axis: 'create' },
+    ]},
+    { q: '苦手意識が少ないのはどちらの作業ですか？', choices: [
+      { key: 'A', label: '統計ソフトで数値を処理する', axis: 'analysis' },
+      { key: 'B', label: '初対面の人にヒアリングする', axis: 'people' },
+      { key: 'C', label: '英語の資料を読み込む', axis: 'global' },
+      { key: 'D', label: '白紙から構成を考える', axis: 'create' },
+    ]},
+  ];
+
+  axisMeta = {
+    analysis: { label: '分析・論理志向', icon: '📈', title: 'データで語る分析タイプ', desc: '数値や理論を手がかりに物事を筋道立てて理解することが得意です。ミクロ・マクロ経済学や統計系の科目で力を発揮しやすく、専門性を積み上げる進路と相性があります。',
+      tags: ['金融・保険', 'コンサルティング', '公認会計士・税理士', 'データアナリスト'] },
+    people: { label: '対人・社会志向', icon: '🤝', title: '人と地域をつなぐ共感タイプ', desc: '対話や現場感覚を通じて課題を捉えることが得意です。地域経済や労働・社会政策系の科目、フィールドワークを含む演習と相性があります。',
+      tags: ['公務員・行政', '地域企業・まちづくり', '人材・教育', 'NPO・福祉'] },
+    global: { label: '国際・多文化志向', icon: '🌐', title: '世界に視野を広げる国際タイプ', desc: '異なる文化や制度への関心が強く、語学・国際関係系の科目や留学プログラムで伸びやすいタイプです。海外を舞台にした進路と相性があります。',
+      tags: ['商社・貿易', '国際機関・JICA', '外資系企業', '長期留学・海外インターン'] },
+    create: { label: '創造・企画志向', icon: '💡', title: 'ゼロから形にする企画タイプ', desc: 'アイデアを構想し、実際に動かすことに手応えを感じます。アントレプレナーシップ系や情報・データサイエンス系の実践科目と相性があります。',
+      tags: ['起業・スタートアップ', '商品企画・マーケティング', 'IT・プロダクト', 'ベンチャー支援'] },
+  };
+
+  courseBank = {
+    analysis: [
+      { title: 'ミクロ経済学Ⅰ', teacher: '神薗 健次', slot: '前期 火2', credits: '2単位', why: '需要と供給の理論を数式とグラフで扱う、分析志向の核となる科目。' },
+      { title: '統計学概論', teacher: '担当者未定', slot: '前期 オンデマンド', credits: '2単位', why: 'データ処理の基礎。期末試験中心の評価で、コツコツ型に向いています。' },
+      { title: '経済概論', teacher: '山口 純哉', slot: '前期 木3', credits: '2単位', why: 'ミクロ・マクロを俯瞰する導入科目。専門科目の土台になります。' },
+      { title: '計量経済学入門', teacher: '担当者未定', slot: '後期 水3', credits: '2単位', why: '統計ソフトを使った実証分析。分析職を目指すなら早期の履修を推奨。' },
+    ],
+    people: [
+      { title: '地域経済論', teacher: '山口 純哉', slot: '後期 木4', credits: '2単位', why: '長崎の産業と暮らしを題材にしたフィールド型。対話重視の評価方法です。' },
+      { title: '労働経済学', teacher: '担当者未定', slot: '前期 金2', credits: '2単位', why: '働き方や雇用の課題を扱い、公務員・人材系の進路に直結します。' },
+      { title: '初年次セミナー（経済）', teacher: '学部教員', slot: '前期 木4', credits: '2単位', why: '少人数のディスカッション中心。意見をまとめる力が評価されます。' },
+      { title: '法学概論', teacher: '森田 顕仁', slot: '1Q 木1・木2', credits: '2単位', why: '制度面から社会課題を捉える視点が身につきます。' },
+    ],
+    global: [
+      { title: '国際関係概論(GSR論)', teacher: '岡崎 洋太郎', slot: '前期 金2', credits: '2単位', why: '国際情勢を体系的に学ぶ入口。留学前の基礎科目として最適です。' },
+      { title: '国際経済学', teacher: '担当者未定', slot: '後期 火3', credits: '2単位', why: '貿易理論と為替を扱い、商社・国際機関志望の必修的位置づけ。' },
+      { title: '英語コミュニケーションⅢ', teacher: '教養教育担当', slot: '前期 月2', credits: '1単位', why: '英語資料の読解と発表。海外プログラム応募の要件にも関わります。' },
+      { title: '海外短期研修プログラム', teacher: '国際連携課', slot: '夏季集中', credits: '2単位', why: '2〜4週間の現地研修。渡航志向のタイプに最も効果的です。' },
+    ],
+    create: [
+      { title: 'アントレ実践入門(2)', teacher: '学部・連携教員', slot: '前期 水3・水4', credits: '2単位', why: 'アイデア創出とデザイン思考を実践。成果物プレゼントで評価されます。' },
+      { title: 'データサイエンス概論(E)', teacher: '担当者未定', slot: '前期 オンデマンド', credits: '2単位', why: '企画をデータで裏づける力がつき、IT・プロダクト志望と相性良好。' },
+      { title: '経営概論', teacher: '林 徹', slot: '2Q 木1・木2', credits: '2単位', why: '事業の仕組みを理解する基礎。起業を考えるなら早めの履修を。' },
+      { title: 'キャリア入門', teacher: '就職支援課', slot: '前期 オンデマンド', credits: '1単位', why: '自己分析の結果を進路計画に落とし込むための実践科目です。' },
+    ],
+  };
+
+  todayClasses = [
+    { period: '3限', time: '13:00', title: 'アントレ実践入門(2) アイデア創出・デザイン思考入門', room: '教養教育A棟12', course: 'entre', unitLabel: '第11回 プロトタイピング', todoCount: 1 },
+    { period: '4限', time: '14:40', title: 'アントレ実践入門(2) アイデア創出・デザイン思考入門', room: '教養教育A棟12', course: 'entre', unitLabel: '第11回 プロトタイピング', todoCount: 0 },
+    { period: '5限', time: '16:20', title: '応用情報処理(E(情2))', room: 'ICT基盤センター 情2', course: 'joho', unitLabel: '第03回 情報の分析（1）', todoCount: 2 },
+    { period: '6限', time: '18:00', title: '応用情報処理(E(情2))', room: 'ICT基盤センター 情2', course: 'joho', unitLabel: '第04回 情報の分析（2）', todoCount: 0 },
+  ];
+
+  lacsUrl = 'https://lacs.nagasaki-u.ac.jp/ultra/institution-page';
+
+  syllabi = [
+    {
+      year: '2026年度', yearShort: '2026', sessionCount: 15, slotId: 'syl-2026-hero',
+      courseTag: 'アントレ実践入門(2)',
+      title: 'アイデア創出・デザイン思考入門',
+      titleEn: 'Practical Introduction to Entrepreneurship II : Idea Generation and Design Thinking',
+      catch: 'アイデアをカタチにして、未来を動かそう！',
+      note: '※履修希望者多数の場合は、60名の履修制限をかけます。',
+      category: '選択科目',
+      facts: [
+        { icon: '📅', label: '開講期間', value: '2026/06/09\n〜 2026/09/27', sub: '' },
+        { icon: '🕒', label: '曜日・校時', value: '水曜 3・4限', sub: '' },
+        { icon: '🏫', label: '教室', value: '教養教育A棟12', sub: '(Room A-12)' },
+        { icon: '👤', label: '担当教員', value: '津留崎 和義 先生', sub: '' },
+        { icon: '👥', label: '対象年次', value: '1・2・3・4年生', sub: '全学生' },
+        { icon: '🎓', label: '単位数', value: '2.0', sub: '(一般/編入/留学)' },
+      ],
+      overview: '自らの関心のある分野での事業創出をテーマに、事業計画策定に必要な知識を修得し、実際に事業計画を作成します。',
+      support: '事業化や起業を希望する学生には、本授業終了後もビジコン出場や学生ベンチャー起業に向けて、FFGアントレプレナーシップセンターとしてサポートしていきます！',
+      dps: [
+        { code: 'DP1', text: '自ら学び、考え、主張し、行動することができる' },
+        { code: 'DP2', text: '分野・領域を超えて活用できる汎用可能な技能を身につけている' },
+        { code: 'DP5', text: '主体性をもって他者と協働できる' },
+      ],
+      skills: [
+        { icon: '💡', label: '主体性', en: 'Autonomy' },
+        { icon: '🤝', label: '協働性', en: 'Cooperativeness' },
+        { icon: '🔍', label: '多角的に考える力', en: 'Multiple perspectives' },
+        { icon: '🧩', label: '問題解決力', en: 'Problem solving' },
+      ],
+      flow: [
+        { label: '1・2回', date: '6/17', icon: '🖥️', text: 'オリエンテーション\nアントレプレナーシップとは\nデザイン思考とは', color: '#eaf2fc', fg: '#1c4f8f' },
+        { label: '3・4回', date: '6/24', icon: '🔎', text: '関心領域の抽出', color: '#e6f4ea', fg: '#1c6b45' },
+        { label: '5・6回', date: '7/1', icon: '❤️', text: '共感〜\nターゲット顧客の定義〜', color: '#fdf3c8', fg: '#6b5512' },
+        { label: '7・8回', date: '7/8', icon: '💭', text: '問題定義〜\n解決すべき真の課題抽出\nテーマの定義〜', color: '#fde8dc', fg: '#8a4a20' },
+        { label: '9・10回', date: '7/15', icon: '💡', text: '概念化〜\nアイデアの創出〜', color: '#fce4ec', fg: '#96305a' },
+        { label: '11・12回', date: '7/22', icon: '📦', text: '試作〜\nラピッドプロトタイピング〜', color: '#efe6fa', fg: '#5c3b96' },
+        { label: '13・14回', date: '7/29', icon: '📈', text: '最終プレゼンテーション', color: '#e3f0fb', fg: '#1c4f8f' },
+        { label: '15回', date: '8/5', icon: '🙌', text: '振り返り', color: '#e0f2f1', fg: '#12695f' },
+      ],
+      methods: [
+        { code: 'B', text: '他者と関わり、多角的に考える活動' },
+        { code: 'C', text: '技能修得のために実践する活動' },
+        { code: 'D', text: '知識を総合的に活用し、問題を解決する活動' },
+      ],
+      grading: [
+        { label: '平素の学修態度', pct: '60%', note: '授業への取り組み', color: '#8fb3d9' },
+        { label: '最終プレゼンテーション', pct: '40%', note: '詳細は授業計画詳細を参照', color: '#f4a0ae' },
+      ],
+      pie: 60,
+      materials: '教科書は使用しません。必要な資料等は、講義内やLACSにて共有します。',
+      pre: '各回の授業内容について基礎知識を得て、疑問点を整理しておく。',
+      post: '授業後にその内容と自身の態度や行動について振り返る。',
+      keywords: ['ビジネスプラン', 'ビジコン', '事業計画', 'アントレプレナー', 'アントレプレナーシップ', '起業家精神', 'キャリア', 'ベンチャー', 'アイデア創出'],
+      requirement: '「アントレ実践入門(1)」（1Q）を本授業とあわせて受講することで、さらに効果的な学修を進めることができます！',
+      email: 'turusaki▲nagasaki-u.ac.jp（▲を@に置き換えてください）',
+      office: 'CROSS Nagasaki　ラウンジNOVE',
+      hours: '質問等は事前にメールにてアポイントをとること',
+    },
+    {
+      year: '2025年度', yearShort: '2025', sessionCount: 15, slotId: 'syl-2025-hero',
+      courseTag: 'アントレ実践入門(1)',
+      title: '課題発見・システム思考入門',
+      titleEn: 'Practical Introduction to Entrepreneurship I : Problem Finding and Systems Thinking',
+      catch: 'あたりまえを疑って、課題を見つけよう！',
+      note: '※前年度のシラバスです。開講内容・担当教員は変更される場合があります。',
+      category: '選択科目・1Q',
+      facts: [
+        { icon: '📅', label: '開講期間', value: '2025/04/09\n〜 2025/06/07', sub: '' },
+        { icon: '🕒', label: '曜日・校時', value: '水曜 3・4限', sub: '' },
+        { icon: '🏫', label: '教室', value: '教養教育A棟12', sub: '(Room A-12)' },
+        { icon: '👤', label: '担当教員', value: '津留崎 和義 先生', sub: '' },
+        { icon: '👥', label: '対象年次', value: '1・2・3・4年生', sub: '全学生' },
+        { icon: '🎓', label: '単位数', value: '2.0', sub: '(一般/編入/留学)' },
+      ],
+      overview: '社会や地域に潜む課題を、システム思考の枠組みを使って構造的に捉えます。フィールドでの観察とインタビューを通じて、自分の言葉で課題を定義できるようになることを目指します。',
+      support: '(1) で見つけた課題は、続く「アントレ実践入門(2)」でアイデア創出・試作へつなげられます。通年で受講する学生が多い科目です。',
+      dps: [
+        { code: 'DP1', text: '自ら学び、考え、主張し、行動することができる' },
+        { code: 'DP2', text: '分野・領域を超えて活用できる汎用可能な技能を身につけている' },
+        { code: 'DP4', text: '現代社会の諸課題に関心をもち、探究できる' },
+      ],
+      skills: [
+        { icon: '🔭', label: '課題発見力', en: 'Problem finding' },
+        { icon: '🧠', label: 'システム思考', en: 'Systems thinking' },
+        { icon: '🤝', label: '協働性', en: 'Cooperativeness' },
+        { icon: '🗺️', label: '地域理解', en: 'Local awareness' },
+      ],
+      flow: [
+        { label: '1・2回', date: '4/9', icon: '🖥️', text: 'オリエンテーション\nシステム思考とは', color: '#eaf2fc', fg: '#1c4f8f' },
+        { label: '3・4回', date: '4/16', icon: '🌏', text: '社会課題の全体像を\nつかむ', color: '#e6f4ea', fg: '#1c6b45' },
+        { label: '5・6回', date: '4/23', icon: '🔗', text: '因果ループ図の\n作成', color: '#fdf3c8', fg: '#6b5512' },
+        { label: '7・8回', date: '5/7', icon: '🚶', text: 'フィールド観察〜\n現場を歩く〜', color: '#fde8dc', fg: '#8a4a20' },
+        { label: '9・10回', date: '5/14', icon: '🎤', text: 'インタビュー実習', color: '#fce4ec', fg: '#96305a' },
+        { label: '11・12回', date: '5/21', icon: '🧩', text: '課題の構造化〜\nレバレッジポイント〜', color: '#efe6fa', fg: '#5c3b96' },
+        { label: '13・14回', date: '5/28', icon: '📋', text: '課題定義書の作成\n中間共有', color: '#e3f0fb', fg: '#1c4f8f' },
+        { label: '15回', date: '6/4', icon: '🙌', text: '発表と振り返り', color: '#e0f2f1', fg: '#12695f' },
+      ],
+      methods: [
+        { code: 'A', text: '知識を体系的に理解する活動' },
+        { code: 'B', text: '他者と関わり、多角的に考える活動' },
+        { code: 'D', text: '知識を総合的に活用し、問題を解決する活動' },
+      ],
+      grading: [
+        { label: '平素の学修態度', pct: '50%', note: '授業への取り組み', color: '#8fb3d9' },
+        { label: '課題定義書・発表', pct: '50%', note: '詳細は授業計画詳細を参照', color: '#f4a0ae' },
+      ],
+      pie: 50,
+      materials: '教科書は使用しません。ワークシートと参考資料をLACSで配布します。',
+      pre: '指定された記事・事例に目を通し、気づいた点を書き出しておく。',
+      post: 'フィールドノートを整理し、課題の仮説を更新する。',
+      keywords: ['課題発見', 'システム思考', '因果ループ図', 'フィールドワーク', 'インタビュー', '地域課題', 'アントレプレナーシップ', 'デザインリサーチ'],
+      requirement: '特にありません。1年次からの履修を歓迎します。「アントレ実践入門(2)」（2Q）と続けて受講すると効果的です。',
+      email: 'turusaki▲nagasaki-u.ac.jp（▲を@に置き換えてください）',
+      office: 'CROSS Nagasaki　ラウンジNOVE',
+      hours: '質問等は事前にメールにてアポイントをとること',
+    },
+    {
+      year: '2026年度', yearShort: '2026', sessionCount: 15, tabLabel: '2026年度・3Q', slotId: 'syl-2026-micro-hero',
+      courseTag: 'ミクロ経済学Ⅰ',
+      title: 'ミクロ経済学Ⅰ',
+      titleEn: 'Microeconomics I',
+      catch: '市場のしくみを、理論とデータから読み解こう。',
+      note: '※需要と供給、消費者行動、企業行動を中心に扱います。',
+      category: '専門科目・選択',
+      facts: [
+        { icon: '📅', label: '開講期間', value: '2026/10/01\n〜 2027/02/03', sub: '' },
+        { icon: '🕒', label: '曜日・校時', value: '火曜 2限', sub: '' },
+        { icon: '🏫', label: '教室', value: '経済学部講堂', sub: '' },
+        { icon: '👤', label: '担当教員', value: '神薗 健次 先生', sub: '' },
+        { icon: '👥', label: '対象年次', value: '2・3・4年生', sub: '経済学部等' },
+        { icon: '🎓', label: '単位数', value: '2.0', sub: '(一般/編入/留学)' },
+      ],
+      overview: 'ミクロ経済学の基本的な考え方を学び、個人や企業の意思決定が市場の価格や資源配分にどのような影響を与えるのかを理解します。数式とグラフを使いながら、身近な経済現象を理論的に分析します。',
+      support: '経済学を専門的に学ぶための基礎科目です。経済概論や経済数学入門とあわせて履修すると、理論の理解を深めやすくなります。',
+      dps: [
+        { code: 'DP1', text: '自ら学び、考え、主張し、行動することができる' },
+        { code: 'DP2', text: '分野・領域を超えて活用できる汎用可能な技能を身につけている' },
+        { code: 'DP3', text: '専門的知識を用いて現代社会の課題を分析できる' },
+      ],
+      skills: [
+        { icon: '📐', label: '論理的思考力', en: 'Logical thinking' },
+        { icon: '📊', label: '分析力', en: 'Analytical ability' },
+        { icon: '🧮', label: '数理的理解', en: 'Quantitative literacy' },
+        { icon: '🔎', label: '問題発見力', en: 'Problem finding' },
+      ],
+      flow: [
+        { label: '1回', date: '10/1', icon: '🗺️', text: 'ガイダンス\n経済学の考え方', color: '#eaf2fc', fg: '#1c4f8f' },
+        { label: '2・3回', date: '10/8', icon: '📈', text: '需要と供給\n市場均衡', color: '#e6f4ea', fg: '#1c6b45' },
+        { label: '4・5回', date: '10/22', icon: '🛒', text: '消費者行動\n効用最大化', color: '#fdf3c8', fg: '#6b5512' },
+        { label: '6・7回', date: '11/5', icon: '🏭', text: '企業行動\n費用と利潤', color: '#fde8dc', fg: '#8a4a20' },
+        { label: '8・9回', date: '11/19', icon: '⚖️', text: '完全競争市場\n独占市場', color: '#fce4ec', fg: '#96305a' },
+        { label: '10・11回', date: '12/3', icon: '🔗', text: '市場の失敗\n外部性と公共財', color: '#efe6fa', fg: '#5c3b96' },
+        { label: '12・13回', date: '12/17', icon: '🌐', text: '情報の非対称性\nゲームの基礎', color: '#e3f0fb', fg: '#1c4f8f' },
+        { label: '14・15回', date: '1/14', icon: '📝', text: '総復習\n定期試験対策', color: '#e0f2f1', fg: '#12695f' },
+      ],
+      methods: [
+        { code: 'A', text: '知識を体系的に理解する活動' },
+        { code: 'C', text: '技能修得のために演習する活動' },
+        { code: 'D', text: '知識を総合的に活用し、問題を解決する活動' },
+      ],
+      grading: [
+        { label: '定期試験', pct: '70%', note: '授業内容の理解度', color: '#8fb3d9' },
+        { label: '小テスト・課題', pct: '30%', note: '毎回の演習と提出課題', color: '#f4a0ae' },
+      ],
+      pie: 70,
+      materials: '教科書は指定しません。講義資料と練習問題をLACSで配布します。',
+      pre: '講義資料を確認し、用語やグラフの意味を整理しておく。',
+      post: '講義内容を練習問題で復習し、理解できなかった点を次回までに確認する。',
+      keywords: ['ミクロ経済学', '需要と供給', '消費者行動', '企業行動', '市場均衡', '外部性', '公共財'],
+      requirement: '特にありません。経済数学入門を履修済み、または同時に履修することを推奨します。',
+      email: 'kamzono▲nagasaki-u.ac.jp（▲を@に置き換えてください）',
+      office: '経済学部研究室',
+      hours: '授業終了後またはメールで事前にアポイントをとること',
+    },
+    {
+      year: '2026年度', yearShort: '2026', sessionCount: 8, tabLabel: '2026年度・1Q', slotId: 'syl-2026-data-hero',
+      courseTag: '【Online】●データサイエンス概論(E)', title: 'データサイエンス概論(E)', titleEn: 'Introduction to Data Science',
+      catch: 'データから、社会の課題と新しい価値を読み解く。', note: '※オンライン（オンデマンド形式）で実施します。授業の詳細はLACSから確認してください。', category: '情報・データサイエンス科目',
+      facts: [
+        { icon: '📅', label: '開講期間', value: '2026/04/01\n〜 2026/06/08', sub: '1クォーター' }, { icon: '🕒', label: '曜日・校時', value: 'オンデマンド', sub: '他／Others 0' },
+        { icon: '🏫', label: '教室', value: 'オンライン', sub: '' }, { icon: '👤', label: '担当教員', value: '一藤 裕 先生', sub: '植木 優夫（編集担当）' },
+        { icon: '👥', label: '対象年次', value: '1・2・3・4年生', sub: '経済学部1年次' }, { icon: '🎓', label: '単位数', value: '1.0', sub: '(一般/編入/留学)' },
+      ],
+      overview: '社会のグローバル化や産業構造の変化が加速する中で必要となる、データサイエンスのリテラシーを学習します。データの処理、集計、可視化、分析を通じて、社会における事象を適切に捉え、分析・説明できる力を修得します。',
+      support: 'なぜデータサイエンスを学ぶのか、社会でどのように活用されているのかを、社会の実データや実課題から考えます。',
+      dps: [{ code: 'DP1', text: 'データサイエンスの基礎知識と技能を身につける' }, { code: 'DP2', text: 'データを適切に処理・分析し、結果を説明できる' }, { code: 'DP3', text: '社会の課題をデータから読み解き、考察できる' }],
+      skills: [{ icon: '🧹', label: 'データ処理力', en: 'Data processing' }, { icon: '📊', label: '可視化・分析力', en: 'Visualization & analysis' }, { icon: '💡', label: '課題発見力', en: 'Problem finding' }, { icon: '🗣️', label: '説明する力', en: 'Communication' }],
+      flow: [
+        { label: '第1回', date: '4/1', icon: '🌐', text: 'データサイエンスの概要\n役割とAIの応用', color: '#eaf2fc', fg: '#1c4f8f' }, { label: '第2回', date: '4/8', icon: '📏', text: 'データ分析の基礎\n平均値と分散', color: '#e6f4ea', fg: '#1c6b45' },
+        { label: '第3回', date: '4/15', icon: '📈', text: '散布図・相関係数\n回帰直線と注意点', color: '#fdf3c8', fg: '#6b5512' }, { label: '第4回', date: '4/22', icon: '🔍', text: 'クロス集計・回帰分析\nベイズ推論・関連分析', color: '#fde8dc', fg: '#8a4a20' },
+        { label: '第5回', date: '5/6', icon: '🤖', text: 'クラスタリング・決定木\n機械学習とAI・Excel', color: '#fce4ec', fg: '#96305a' }, { label: '第6回', date: '5/13', icon: '💻', text: 'RやPythonを使った\nデータ分析', color: '#efe6fa', fg: '#5c3b96' },
+        { label: '第7回', date: '5/20', icon: '🏥', text: '応用事例\nマーケティング・金融・医学', color: '#e3f0fb', fg: '#1c4f8f' }, { label: '第8回', date: '5/27', icon: '✅', text: '総括', color: '#e0f2f1', fg: '#12695f' },
+      ],
+      methods: [{ code: 'A', text: '授業内容の理解度を確認し、自分で考える活動' }, { code: 'C', text: '技能修得のために実践する活動' }, { code: 'D', text: '問題解決のために知識を総合的に活用する活動' }],
+      grading: [{ label: '全小テスト', pct: '100%', note: '合計60点以上を合格とする', color: '#8fb3d9' }], pie: 100,
+      materials: '毎回教材がLACSで公開されます。教科書：『データサイエンスの歩き方 第2版』学術図書出版社（2025）', pre: '各回の教材を確認し、充分な予習を行う。', post: '小テストに取り組み、授業内容を復習する。',
+      keywords: ['データサイエンス', 'データ分析', 'AI', '可視化', '機械学習', 'R', 'Python'], requirement: '特にありません。オンライン（オンデマンド形式）で実施します。', email: 'ichifuji▲nagasaki-u.ac.jp（▲を@に置き換えてください）', office: 'NUTIC 4階・11番 一藤教員室', hours: '必ず事前にメールでアポイントを取ってください。TEL 095-819-2096',
+    },
+  ];
+
+  lacsCourses = {
+    joho: {
+      title: '●応用情報処理(E(情2))',
+      meta: '2026年度 前期 ／ 月5・月6 ／ 鈴木 斉 ・ 山田 紘大',
+      staff: [
+        { initial: '鈴', name: '鈴木 斉', role: '教員' },
+        { initial: '山', name: '山田 紘大', role: '副担当教員' },
+      ],
+      units: [
+        { no: '01', title: '情報の整理と加工（1）', summary: '表計算の基本操作・関数入門', items: [
+          { kind: '資料', title: '講義スライド 01.pdf', note: '公開日 4/13 ・ 24ページ', state: '閲覧済' },
+          { kind: '動画', title: '操作デモ（12分）', note: 'ストリーミング', state: '閲覧済' },
+        ]},
+        { no: '02', title: '情報の整理と加工（2）', summary: '条件付き集計・データの整形', items: [
+          { kind: '資料', title: '講義スライド 02.pdf', note: '公開日 4/20 ・ 31ページ', state: '閲覧済' },
+          { kind: '課題', title: '演習課題 02', note: '提出期限 4/26 23:59', state: '提出済' },
+        ]},
+        { no: '03', title: '情報の分析（1）', summary: '記述統計とグラフ表現', today: true, items: [
+          { kind: '資料', title: '講義スライド 03.pdf', note: '公開日 7/29 ・ 28ページ', state: '未読' },
+          { kind: '課題', title: '演習課題 03（データ集計）', note: '提出期限 8/4 23:59', state: '未提出' },
+          { kind: 'テスト', title: '小テスト 03', note: '受験可能 7/29 〜 8/4 ・ 制限20分', state: '未受験' },
+        ]},
+        { no: '04', title: '情報の分析（2）', summary: '相関・回帰の基礎', items: [
+          { kind: '資料', title: '講義スライド 04.pdf', note: '公開予定 7/29 18:00', state: '公開待ち' },
+          { kind: '掲示', title: '6限の教室変更について', note: '投稿 7/28 ・ 鈴木 斉', state: '未読' },
+        ]},
+        { no: '05', title: '情報のデジタル化', summary: '文字コード・画像・音声の符号化', items: [
+          { kind: '資料', title: '講義スライド 05.pdf', note: '公開予定 8/5', state: '公開待ち' },
+        ]},
+      ],
+      deadlines: [
+        { title: '演習課題 03（データ集計）', due: '8/4（火）23:59 まで ・ あと6日', urgent: true },
+        { title: '小テスト 03', due: '8/4（火）23:59 まで ・ 制限20分', urgent: true },
+        { title: '授業アンケート（前期）', due: '8/10（月）まで', urgent: false },
+      ],
+    },
+    entre: {
+      title: '●アントレ実践入門(2)',
+      meta: '2026年度 前期 ／ 水3・水4 ／ 学部・連携教員',
+      staff: [
+        { initial: '連', name: '連携教員（外部講師）', role: '教員' },
+        { initial: '事', name: '学務事務室', role: 'コース管理' },
+      ],
+      units: [
+        { no: '09', title: 'アイデア創出ワーク', summary: 'ブレインストーミングと発散思考', items: [
+          { kind: '資料', title: 'ワークシート 09.pdf', note: '公開日 7/8', state: '閲覧済' },
+        ]},
+        { no: '10', title: 'ユーザーインタビュー', summary: '共感マップの作成', items: [
+          { kind: '課題', title: 'インタビュー記録の提出', note: '提出期限 7/22 23:59', state: '提出済' },
+        ]},
+        { no: '11', title: 'プロトタイピング', summary: '紙プロトタイプで検証する', today: true, items: [
+          { kind: '資料', title: '講義スライド 11.pdf', note: '公開日 7/29 ・ 18ページ', state: '未読' },
+          { kind: '課題', title: 'プロトタイプ写真の提出', note: '提出期限 8/5 23:59', state: '未提出' },
+        ]},
+        { no: '12', title: '最終プレゼン準備', summary: 'ピッチ資料の構成', items: [
+          { kind: '掲示', title: '発表順の抽選結果', note: '投稿 7/25', state: '未読' },
+        ]},
+      ],
+      deadlines: [
+        { title: 'プロトタイプ写真の提出', due: '8/5（水）23:59 まで ・ あと7日', urgent: true },
+        { title: '最終ピッチ資料', due: '8/19（水）まで', urgent: false },
+      ],
+    },
+  };
+
+  lacsItemStyles = {
+    資料:   { bg: '#EEF3FB', fg: '#1E5FA8' },
+    動画:   { bg: '#F3EEFB', fg: '#7A3FB8' },
+    課題:   { bg: '#FFF3E0', fg: '#B76E00' },
+    テスト: { bg: '#FDECEC', fg: '#B42318' },
+    掲示:   { bg: '#EAF6EE', fg: '#12805C' },
+  };
+
+  notices = [
+    { badge: '重要', badgeStyle: 'flex-shrink:0;background:#FEE2E2;color:#B42318;font-size:11px;font-weight:700;padding:4px 8px;border-radius:6px;', title: '大学敷地内及び大学周辺道路等での喫煙の禁止について', date: '2026/05/22', dept: '学生・国際担当' },
+    { badge: 'お知らせ', badgeStyle: 'flex-shrink:0;background:#EEF3FB;color:#1E5FA8;font-size:11px;font-weight:700;padding:4px 8px;border-radius:6px;white-space:nowrap;', title: 'チャットボットサービスを設置しました（学生向けよくある質問）', date: '2026/07/10', dept: '学生支援センター' },
+    { badge: '掲示', badgeStyle: 'flex-shrink:0;background:#EAF6EE;color:#12805C;font-size:11px;font-weight:700;padding:4px 8px;border-radius:6px;', title: '休講補講・臨時教室変更が登録されました', date: '2026/07/16', dept: '教務課' },
+    { badge: 'アンケート', badgeStyle: 'flex-shrink:0;background:#FFF3E0;color:#B76E00;font-size:11px;font-weight:700;padding:4px 8px;border-radius:6px;white-space:nowrap;', title: '授業アンケートに回答してください（回答期限あり）', date: '2026/07/05', dept: '教育推進課' },
+  ];
+
+  rawResults = [
+    { cat: 'kyoyo', term: '前期', dp: '月5', numbering: 'GEDS 10101', title: '情報リテラシー入門', teacher: '鈴木 斉', credits: '2単位', year: '1年次' },
+    { cat: 'kyoyo', term: '前期', dp: '火3', numbering: 'GEHL 10301', title: '健康科学', teacher: '教養教育担当', credits: '2単位', year: '1・2年次' },
+    { cat: 'kyoyo', term: '1Q', dp: '木1,木2', numbering: 'GESO 10201', title: '現代社会と経済のしくみ', teacher: '森田 顕仁', credits: '1単位', year: '1年次' },
+    { cat: 'kyoyo', term: '1Q', dp: '他', numbering: 'GEDS 10401', title: '【Online】●データサイエンス概論(E)', teacher: '一藤 裕', credits: '1単位', year: '1〜4年次', detailIndex: 3 },
+    { cat: 'kyoyo', term: '後期', dp: '月2', numbering: 'GEEN 10501', title: '英語コミュニケーションⅢ', teacher: '教養教育担当', credits: '1単位', year: '1・2年次' },
+    { cat: 'kyoyo', term: '3Q', dp: '金4', numbering: 'GEGL 10601', title: '長崎の歴史と文化', teacher: '教養教育担当', credits: '1単位', year: '全年次' },
+    { cat: 'kyoyo', term: '通年', dp: 'オンデマンド', numbering: 'GECR 10701', title: 'キャリア入門', teacher: '就職支援課', credits: '1単位', year: '1・2年次' },
+    { cat: 'kyoyo', term: '1Q', dp: '水3,水4', numbering: 'GEEP 10801', title: '●アントレ実践入門(1) 課題発見・システム思考入門', teacher: '津留崎 和義', credits: '2単位', year: '全年次', alias: 'アントレ アントレプレナー entre 起業', detailIndex: 1 },
+    { cat: 'kyoyo', term: '2Q', dp: '水3,水4', numbering: 'GEEP 10901', title: '●アントレ実践入門(2) アイデア創出・デザイン思考入門', teacher: '津留崎 和義', credits: '2単位', year: '全年次', alias: 'アントレ アントレプレナー entre 起業 デザイン思考', detailIndex: 0 },
+    { cat: 'kyoyo', term: '後期', dp: '木5', numbering: 'GEEP 11001', title: '●アントレ実践入門(3) 事業計画策定入門', teacher: '津留崎 和義', credits: '2単位', year: '全年次', alias: 'アントレ アントレプレナー entre 起業 ビジコン' },
+
+    { cat: 'senmon', term: '前期', dp: '木3', numbering: 'ECMC 11101', title: '経済概論（令和5年度以降入学者対象）', teacher: '山口 純哉', credits: '2単位', year: '1〜4年次' },
+    { cat: 'senmon', term: '前期', dp: '水6', numbering: 'ECMC 11101', title: '経済概論（令和4年度以前入学者対象）', teacher: '山口 純哉', credits: '2単位', year: '2〜4年次' },
+    { cat: 'senmon', term: '前期', dp: '金3', numbering: 'ECMC 11301', title: '経済数学入門', teacher: '神薗 健次', credits: '2単位', year: '1・2年次' },
+    { cat: 'senmon', term: '1Q', dp: '木1,木2', numbering: 'ECMC 11201', title: '法学概論', teacher: '森田 顕仁', credits: '2単位', year: '1〜4年次' },
+    { cat: 'senmon', term: '2Q', dp: '木1,木2', numbering: 'ECMC 11601', title: '経営概論', teacher: '林 徹', credits: '2単位', year: '1〜4年次' },
+    { cat: 'senmon', term: '前期', dp: '金2', numbering: 'ECMC 11401', title: '国際関係概論（GSR論）', teacher: '岡崎 洋太郎', credits: '2単位', year: '2〜4年次' },
+    { cat: 'senmon', term: '後期', dp: '火3', numbering: 'ECMC 21801', title: '国際経済学', teacher: '担当者未定', credits: '2単位', year: '2〜4年次' },
+    { cat: 'senmon', term: '後期', dp: '木4', numbering: 'ECMC 21901', title: '地域経済論', teacher: '山口 純哉', credits: '2単位', year: '2〜4年次' },
+    { cat: 'senmon', term: '3Q', dp: '火2', numbering: 'ECMC 22001', title: 'ミクロ経済学Ⅰ', teacher: '神薗 健次', credits: '2単位', year: '2〜4年次', detailIndex: 2 },
+    { cat: 'senmon', term: '4Q', dp: '水3', numbering: 'ECMC 22101', title: '計量経済学入門', teacher: '担当者未定', credits: '2単位', year: '3・4年次' },
+  ];
+
+  termOrder = ['前期', '1Q', '2Q', '後期', '3Q', '4Q', '通年'];
+
+  ledger = [
+    { label: 'Semester', value: '2026年度 前期' },
+    { label: 'Day・Period', value: '木曜 3限' },
+    { label: 'Duration', value: '04/01 〜 09/28' },
+    { label: 'Format', value: '講義（Lecture）' },
+    { label: 'Room', value: '経済学部講堂' },
+    { label: 'Intended year', value: '1〜4年生' },
+    { label: 'Credits', value: '2.0' },
+    { label: 'Required / Elective', value: '選択（Elective）' },
+  ];
+
+  tags = ['汎用的能力 Generic Competence', '国際・地域社会への関心', 'A. 理解度確認・自己思考', 'キーワード：ミクロ経済学', 'キーワード：マクロ経済学'];
+
+  chartDefs = [
+    { w: 6.25, color: '#8b93a6', label: '1', name: '講義ガイダンス', weeks: '第1回' },
+    { w: 12.5, color: '#a97c1f', label: 'Ⅰ部', name: '第Ⅰ部・経済学への誘い', weeks: '第2〜3回' },
+    { w: 31.25, color: '#1c2a44', label: 'Ⅱ部・ミクロ', name: '第Ⅱ部・ミクロ経済学の基礎', weeks: '第4〜8回' },
+    { w: 31.25, color: '#3d4f75', label: 'Ⅲ部・マクロ', name: '第Ⅲ部・マクロ経済学の基礎', weeks: '第9〜13回' },
+    { w: 12.5, color: '#6b7591', label: 'まとめ', name: 'まとめ', weeks: '第14〜15回' },
+    { w: 6.25, color: '#9c3b3b', label: '試験', name: '定期試験（対面）', weeks: '第16回' },
+  ];
+
+  // 令和8(2026)年度 学年暦より
+  eventKinds = {
+    register: { label: '履修登録期間', bg: '#FFF3E0', fg: '#B76E00', dot: '#E8A33D' },
+    adjust:   { label: '履修登録調整期間', bg: '#FDF0E6', fg: '#A85C1E', dot: '#C97B33' },
+    exam:     { label: '定期試験・試験時間割発表', bg: '#FDECEC', fg: '#B42318', dot: '#C4453D' },
+    grade:    { label: '成績公開・疑義申立て', bg: '#EAF6EE', fg: '#12805C', dot: '#2E9C74' },
+    term:     { label: '授業開始・式典', bg: '#EEF3FB', fg: '#1E5FA8', dot: '#1E5FA8' },
+  };
+
+  academicEvents = [
+    { kind: 'register', from: '2026-03-23', to: '2026-04-20', title: '前期履修登録期間（教養教育）' },
+    { kind: 'term',     from: '2026-04-02', to: '2026-04-02', title: '入学式' },
+    { kind: 'register', from: '2026-04-03', to: '2026-04-20', title: '前期履修登録期間（専門教育・2Q科目含む）' },
+    { kind: 'term',     from: '2026-04-07', to: '2026-04-07', title: '前期授業開始' },
+    { kind: 'adjust',   from: '2026-04-21', to: '2026-04-27', title: '履修登録調整期間（前期・1Q）' },
+    { kind: 'exam',     from: '2026-05-19', to: '2026-05-19', title: '定期試験時間割発表（1Q）' },
+    { kind: 'adjust',   from: '2026-06-08', to: '2026-06-23', title: '履修登録調整期間（2Q）' },
+    { kind: 'exam',     from: '2026-07-17', to: '2026-07-17', title: '定期試験時間割発表（2Q・前期）' },
+    { kind: 'exam',     from: '2026-07-28', to: '2026-08-05', title: '前期定期試験期間' },
+    { kind: 'grade',    from: '2026-09-01', to: '2026-09-07', title: '前期成績公開・疑義申立て期間' },
+    { kind: 'register', from: '2026-09-18', to: '2026-10-09', title: '後期履修登録期間（専門教育・4Q科目含む）' },
+    { kind: 'term',     from: '2026-09-28', to: '2026-09-28', title: '後期授業開始' },
+    { kind: 'adjust',   from: '2026-10-13', to: '2026-10-19', title: '履修登録調整期間（後期・3Q）' },
+    { kind: 'exam',     from: '2026-11-05', to: '2026-11-05', title: '定期試験時間割発表（3Q）' },
+    { kind: 'adjust',   from: '2026-11-26', to: '2026-12-09', title: '履修登録調整期間（4Q）' },
+    { kind: 'exam',     from: '2027-01-19', to: '2027-01-19', title: '定期試験時間割発表（4Q・後期）' },
+    { kind: 'grade',    from: '2027-02-17', to: '2027-02-26', title: '後期成績公開・疑義申立て期間' },
+    { kind: 'term',     from: '2027-03-25', to: '2027-03-25', title: '卒業式（3月期）' },
+  ];
+
+  TODAY = '2026-07-22';
+
+  iso(y, m, d) { return `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`; }
+
+  eventsOn(dateStr) { return this.academicEvents.filter((e) => dateStr >= e.from && dateStr <= e.to); }
+
+  buildCalDays(y, m) {
+    const first = new Date(y, m - 1, 1).getDay();
+    const daysInMonth = new Date(y, m, 0).getDate();
+    const cells = [];
+    for (let i = 0; i < first; i++) cells.push({ key: 'p' + i, n: '', style: 'height:34px;' });
+    for (let d = 1; d <= daysInMonth; d++) {
+      const ds = this.iso(y, m, d);
+      const evs = this.eventsOn(ds);
+      const isToday = ds === this.TODAY;
+      const main = evs[0] ? this.eventKinds[evs[0].kind] : null;
+      cells.push({
+        key: ds, n: d,
+        style: `position:relative;height:34px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:12.5px;border-radius:8px;color:${isToday ? '#fff' : main ? main.fg : '#28344A'};background:${isToday ? '#1E5FA8' : main ? main.bg : 'transparent'};font-weight:${isToday || main ? '700' : '400'};`,
+        dotStyle: `width:4px;height:4px;border-radius:50%;background:${isToday ? '#fff' : main ? main.dot : 'transparent'};opacity:${evs.length ? 1 : 0};`,
+      });
+    }
+    return cells;
+  }
+
+  toggle(key) { this.setState((s) => ({ [key]: !s[key] })); }
+  toggleTrack(key) { const on = this.state[key]; return `width:42px;height:24px;border-radius:999px;background:${on ? '#1E5FA8' : '#D7DCE6'};position:relative;cursor:pointer;transition:background .15s;flex-shrink:0;`; }
+  toggleKnob(key) { const on = this.state[key]; return `position:absolute;top:2px;left:${on ? '20px' : '2px'};width:20px;height:20px;border-radius:50%;background:#fff;transition:left .15s;box-shadow:0 1px 2px rgba(0,0,0,.2);`; }
+
+  termStyle(term) {
+    const q = /Q$/.test(term);
+    return `background:${q ? '#F3EEFB' : '#EAF6EE'};color:${q ? '#7A3FB8' : '#12805C'};font-size:12px;font-weight:700;padding:3px 9px;border-radius:6px;white-space:nowrap;`;
+  }
+
+  renderVals() {
+    const { view, fontSize, layout } = this.state;
+    const zoom = fontSize === 'S' ? 0.92 : fontSize === 'L' ? 1.12 : 1;
+    const grid = layout === 'simple'
+      ? 'display:flex;flex-direction:column;gap:24px;'
+      : layout === 'wide'
+      ? 'display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;'
+      : 'display:grid;grid-template-columns:1.55fr 1fr;gap:24px;align-items:start;';
+
+    const fontSizes = ['S', 'M', 'L'].map((sz) => ({
+      label: sz === 'S' ? '小' : sz === 'M' ? '中' : '大',
+      onClick: () => this.setState({ fontSize: sz }),
+      style: `flex:1;padding:10px;border-radius:9px;border:1.5px solid ${fontSize === sz ? '#1E5FA8' : '#D7DCE6'};background:${fontSize === sz ? '#EEF3FB' : '#fff'};color:${fontSize === sz ? '#1E5FA8' : '#5A6B85'};font-weight:700;font-size:${sz === 'S' ? '12px' : sz === 'M' ? '14px' : '16px'};cursor:pointer;font-family:inherit;`,
+    }));
+
+    const layoutDefs = [
+      { id: 'standard', label: '標準（2カラム）', desc: 'メイン広め＋サイドバー' },
+      { id: 'wide', label: 'ワイド（均等2カラム）', desc: '左右を同じ幅で表示' },
+      { id: 'simple', label: 'シンプル（1カラム）', desc: '縦に積んで見やすく' },
+    ];
+    const layouts = layoutDefs.map((l) => ({
+      ...l,
+      onClick: () => this.setState({ layout: l.id }),
+      style: `display:flex;flex-direction:column;gap:2px;text-align:left;padding:12px 14px;border-radius:10px;border:1.5px solid ${layout === l.id ? '#1E5FA8' : '#D7DCE6'};background:${layout === l.id ? '#EEF3FB' : '#fff'};color:${layout === l.id ? '#12213D' : '#28344A'};cursor:pointer;font-family:inherit;`,
+    }));
+
+    const { cat: catFilter, term: termFilter } = this.state.resFilter;
+    const catMeta = {
+      kyoyo: { label: '教養科目', style: 'background:#FFF3E0;color:#B76E00;', dot: '#E8A33D' },
+      senmon: { label: '専門科目', style: 'background:#EAF0FB;color:#1E5FA8;', dot: '#1E5FA8' },
+    };
+
+    const queryStr = (this.state.query || '').trim().toLowerCase();
+    const terms = queryStr ? queryStr.split(/[\s　]+/).filter(Boolean) : [];
+    const hay = (r) => [r.title, r.teacher, r.numbering, r.term, r.dp, r.alias || ''].join(' ').toLowerCase();
+    const searched = terms.length ? this.rawResults.filter((r) => terms.every((t) => hay(r).includes(t))) : this.rawResults;
+
+    const catTabs = [
+      { id: 'all', label: 'すべて' },
+      { id: 'kyoyo', label: '教養科目（全学部共通）' },
+      { id: 'senmon', label: '専門科目（学部専用）' },
+    ].map((t) => {
+      const on = catFilter === t.id;
+      return {
+        ...t,
+        count: t.id === 'all' ? searched.length : searched.filter((r) => r.cat === t.id).length,
+        onClick: () => this.setState((s) => ({ resFilter: { ...s.resFilter, cat: t.id } })),
+        style: `display:flex;align-items:center;gap:8px;padding:11px 18px;border-radius:999px;border:1.5px solid ${on ? '#1E5FA8' : '#E4E8F0'};background:${on ? '#1E5FA8' : '#fff'};color:${on ? '#fff' : '#5A6B85'};font-size:13.5px;font-weight:700;cursor:pointer;font-family:inherit;`,
+        countStyle: `font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;background:${on ? 'rgba(255,255,255,.22)' : '#F1F4F9'};color:${on ? '#fff' : '#8792A3'};`,
+      };
+    });
+
+    const catPool = catFilter === 'all' ? searched : searched.filter((r) => r.cat === catFilter);
+
+    const termChips = ['すべて', ...this.termOrder].map((t) => {
+      const id = t === 'すべて' ? 'all' : t;
+      const on = termFilter === id;
+      return {
+        label: t,
+        onClick: () => this.setState((s) => ({ resFilter: { ...s.resFilter, term: id } })),
+        style: `padding:6px 14px;border-radius:999px;border:1px solid ${on ? '#1E5FA8' : '#E4E8F0'};background:${on ? '#EEF3FB' : '#fff'};color:${on ? '#1E5FA8' : '#5A6B85'};font-size:12.5px;font-weight:${on ? '700' : '500'};cursor:pointer;font-family:inherit;`,
+      };
+    });
+
+    const pool = termFilter === 'all' ? catPool : catPool.filter((r) => r.term === termFilter);
+    const decorate = (r) => ({
+      ...r,
+      termStyle: this.termStyle(r.term),
+      catLabel: catMeta[r.cat].label,
+      catStyle: `${catMeta[r.cat].style}font-size:12px;font-weight:700;padding:3px 9px;border-radius:6px;white-space:nowrap;`,
+      onClick: () => this.setState({ view: 'detail', settingsOpen: false, yearIdx: r.detailIndex === undefined ? 0 : r.detailIndex }),
+    });
+
+    let groupedResults;
+    if (catFilter === 'all') {
+      groupedResults = ['kyoyo', 'senmon']
+        .map((c) => ({
+          label: c === 'kyoyo' ? '教養科目（全学部共通・1〜2年次で修得）' : '専門科目（所属学部のみ履修可）',
+          dotStyle: `width:9px;height:9px;border-radius:50%;flex:none;background:${catMeta[c].dot};`,
+          items: pool.filter((r) => r.cat === c).map(decorate),
+        }))
+        .filter((g) => g.items.length)
+        .map((g) => ({ ...g, countLabel: g.items.length + '件' }));
+    } else {
+      groupedResults = this.termOrder
+        .map((t) => ({
+          label: t === '通年' ? '通年・オンデマンド' : t,
+          dotStyle: `width:9px;height:9px;border-radius:50%;flex:none;background:${/Q$/.test(t) ? '#7A3FB8' : '#12805C'};`,
+          items: pool.filter((r) => r.term === t).map(decorate),
+        }))
+        .filter((g) => g.items.length)
+        .map((g) => ({ ...g, countLabel: g.items.length + '件' }));
+    }
+
+    const perPage = 10;
+    const pageCount = Math.ceil(pool.length / perPage);
+    const pages = (pageCount > 1 ? Array.from({ length: pageCount }, (_, i) => i + 1) : []).map((n) => ({
+      n,
+      style: `min-width:34px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;font-weight:${n === 1 ? '700' : '500'};cursor:pointer;color:${n === 1 ? '#fff' : '#5A6B85'};background:${n === 1 ? '#1E5FA8' : '#fff'};border:1px solid ${n === 1 ? '#1E5FA8' : '#E4E8F0'};`,
+    }));
+
+    const ledger = this.ledger.map((l, i) => ({
+      ...l,
+      cellStyle: `padding:16px 18px;border-bottom:1px solid #dcd5c2;${(i % 4 === 3) ? '' : 'border-right:1px solid #dcd5c2;'}${i >= 4 ? 'border-bottom:none;' : ''}`,
+    }));
+
+    const chart = this.chartDefs.map((c) => ({
+      ...c,
+      style: `width:${c.w}%;background:${c.color};display:flex;align-items:center;justify-content:center;color:#f1efe7;font-size:11.5px;font-weight:600;letter-spacing:.02em;border-right:1px solid rgba(255,255,255,.35);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 6px;`,
+      swatchStyle: `width:11px;height:11px;border-radius:2px;margin-top:4px;flex:none;background:${c.color};`,
+    }));
+
+    const calY = this.state.calY, calM = this.state.calM;
+    const monthStart = this.iso(calY, calM, 1);
+    const monthEnd = this.iso(calY, calM, new Date(calY, calM, 0).getDate());
+    const fmt = (s) => { const [, mm, dd] = s.split('-'); return `${+mm}/${+dd}`; };
+    const range = (e) => (e.from === e.to ? fmt(e.from) : `${fmt(e.from)} 〜 ${fmt(e.to)}`);
+    const monthEvents = this.academicEvents
+      .filter((e) => e.from <= monthEnd && e.to >= monthStart)
+      .map((e) => ({
+        title: e.title, range: range(e),
+        barStyle: `width:4px;align-self:stretch;border-radius:999px;flex:none;background:${this.eventKinds[e.kind].dot};`,
+      }));
+    const upcoming = this.academicEvents
+      .filter((e) => e.to >= this.TODAY)
+      .slice(0, 3)
+      .map((e) => ({
+        title: e.title, range: range(e),
+        chipStyle: `font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;white-space:nowrap;background:${this.eventKinds[e.kind].bg};color:${this.eventKinds[e.kind].fg};`,
+        chipLabel: this.eventKinds[e.kind].label,
+      }));
+
+    const yearIdx = this.state.yearIdx;
+    const course = this.lacsCourses[this.state.lacsCourse] || this.lacsCourses.joho;
+    const openMenu = this.state.openMenu;
+    const navGroups = this.navDefs.map((g) => ({
+      ...g,
+      open: openMenu === g.id,
+      onClick: () => this.setState((s) => ({ openMenu: s.openMenu === g.id ? null : g.id })),
+      btnStyle: `display:flex;align-items:center;gap:7px;padding:14px 16px;border:none;background:${openMenu === g.id ? '#F1F4F9' : 'transparent'};font-size:13.5px;font-weight:600;color:${openMenu === g.id ? '#1E5FA8' : '#5A6B85'};cursor:pointer;font-family:inherit;white-space:nowrap;border-bottom:3px solid ${openMenu === g.id ? '#1E5FA8' : 'transparent'};`,
+      caretStyle: `font-size:10px;color:#9AA6B8;transform:rotate(${openMenu === g.id ? '180deg' : '0deg'});transition:transform .15s;`,
+      items: g.items.map((it) => ({
+        ...it,
+        onClick: (e) => {
+          if (e && e.preventDefault) e.preventDefault();
+          if (it.prepare) {
+            window.location.href = 'preparing.html';
+            this.setState({ openMenu: null });
+            return;
+          }
+          this.setState({ openMenu: null, ...(it.go ? { view: it.go } : {}) });
+        },
+      })),
+    }));
+
+    // --- quiz ---
+    const { qIndex, answers } = this.state;
+    const total = this.questions.length;
+    const done = answers.length >= total;
+    const q = this.questions[Math.min(qIndex, total - 1)];
+    const pct = Math.round((answers.length / total) * 100);
+
+    const counts = { analysis: 0, people: 0, global: 0, create: 0 };
+    answers.forEach((a) => { counts[a] = (counts[a] || 0) + 1; });
+    const sorted = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
+    const top = sorted[0];
+    const meta = this.axisMeta[top] || this.axisMeta.analysis;
+    const answered = answers.length || 1;
+
+    const axes = Object.keys(this.axisMeta).map((k) => {
+      const p = Math.round((counts[k] / answered) * 100);
+      return {
+        label: this.axisMeta[k].label,
+        pct: p + '%',
+        barStyle: `height:100%;width:${p}%;border-radius:999px;background:${k === top ? '#1E5FA8' : '#B7CEEB'};`,
+      };
+    });
+
+    const decorateMatch = (c, i) => {
+      const term = c.slot.split(' ')[0];
+      const day = c.slot.split(' ').slice(1).join(' ');
+      const isQ = /Q$/.test(term);
+      const score = 96 - i * 6;
+      return {
+        ...c, score, term, day, hasDay: !!day,
+        termStyle: `background:${isQ ? '#F3EEFB' : term === '夏季集中' ? '#FFF3E0' : '#EAF6EE'};color:${isQ ? '#7A3FB8' : term === '夏季集中' ? '#B76E00' : '#12805C'};font-size:12px;font-weight:700;padding:3px 9px;border-radius:6px;white-space:nowrap;`,
+        onClick: () => this.setState({ view: 'detail' }),
+        ringStyle: `width:52px;height:52px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:${i === 0 ? '#fff' : '#1E5FA8'};background:${i === 0 ? '#1E5FA8' : '#EEF3FB'};`,
+      };
+    };
+    const allMatches = (this.courseBank[top] || []).map(decorateMatch);
+    const bucket = (name, test) => {
+      const items = allMatches.filter((m) => test(m.term));
+      return { label: name, items, countLabel: items.length + '件', dotStyle: `width:9px;height:9px;border-radius:50%;flex:none;background:${name.startsWith('前期') ? '#12805C' : name.startsWith('後期') ? '#3D4F75' : '#B76E00'};` };
+    };
+    const matchGroups = [
+      bucket('前期（1Q・2Q を含む）', (t) => ['前期', '1Q', '2Q'].includes(t)),
+      bucket('後期（3Q・4Q を含む）', (t) => ['後期', '3Q', '4Q'].includes(t)),
+      bucket('通年・集中講義', (t) => !['前期', '1Q', '2Q', '後期', '3Q', '4Q'].includes(t)),
+    ].filter((g) => g.items.length);
+
+    return {
+      navGroups,
+      anyMenuOpen: openMenu !== null,
+      closeMenus: () => this.setState({ openMenu: null }),
+      isCareer: view === 'career',
+      goCareer: () => this.setState({ view: 'career' }),
+      quizActive: !done,
+      quizDone: done,
+      qNum: Math.min(answers.length + 1, total),
+      qTotal: total,
+      qPercentLabel: pct + '% 完了',
+      progressStyle: `height:100%;width:${pct}%;background:#1E5FA8;border-radius:999px;transition:width .25s;`,
+      currentQuestion: q ? q.q : '',
+      currentChoices: q ? q.choices.map((c) => ({
+        key: c.key, label: c.label,
+        onClick: () => this.setState((s) => ({ answers: [...s.answers, c.axis], qIndex: s.qIndex + 1 })),
+      })) : [],
+      prevQuestion: () => this.setState((s) => ({ answers: s.answers.slice(0, -1), qIndex: Math.max(0, s.qIndex - 1) })),
+      resetQuiz: () => this.setState({ answers: [], qIndex: 0 }),
+      resultIcon: meta.icon,
+      resultTitle: meta.title,
+      resultDesc: meta.desc,
+      careerTags: meta.tags,
+      axes, matchGroups,
+      mainWrapStyle: `flex:1;padding:28px 32px 48px;max-width:1400px;width:100%;margin:0 auto;box-sizing:border-box;zoom:${zoom};`,
+      gridStyle: grid,
+      popularTags: ['アントレ', 'ミクロ経済学', '統計学', 'データサイエンス'].map((label) => ({
+        label, onClick: () => this.setState({ query: label, view: 'results' }),
+      })),
+      todayClasses: this.todayClasses.map((c) => ({
+        ...c,
+        hasTodo: c.todoCount > 0,
+        onClick: () => this.setState({ view: 'lacs', lacsCourse: c.course, openUnit: c.unitLabel.slice(1, 3) }),
+      })),
+      isLacs: view === 'lacs',
+      lacsUrl: this.lacsUrl,
+      lacsCourse: course,
+      lacsTabs: ['コンテンツ', 'カレンダー', '連絡事項', '掲示板', '成績表', 'メッセージ', 'グループ'].map((label) => {
+        const on = label === 'コンテンツ';
+        return {
+          label, hasBadge: label === '成績表', badge: 16,
+          onClick: () => {},
+          style: `background:none;border:none;padding:12px 0 13px;font-size:14px;font-weight:${on ? '700' : '500'};color:${on ? '#fff' : '#AFC0D4'};border-bottom:3px solid ${on ? '#2E7DD1' : 'transparent'};cursor:pointer;font-family:inherit;white-space:nowrap;`,
+        };
+      }),
+      unitCount: course.units.length,
+      lacsUnits: course.units.map((u) => {
+        const open = this.state.openUnit === u.no;
+        return {
+          ...u, open, isToday: !!u.today,
+          cardStyle: `background:#fff;border-radius:14px;border:1px solid ${u.today ? '#B7CEEB' : '#E4E8F0'};box-shadow:0 1px 2px rgba(16,24,40,.04);overflow:hidden;`,
+          icon: u.today ? '▶' : '📁',
+          iconStyle: `width:34px;height:34px;flex:none;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:14px;background:${u.today ? '#1E5FA8' : '#F1F4F9'};color:${u.today ? '#fff' : '#5A6B85'};`,
+          caretStyle: `font-size:12px;color:#9AA6B8;transform:rotate(${open ? '180deg' : '0deg'});transition:transform .15s;`,
+          onClick: () => this.setState((s) => ({ openUnit: s.openUnit === u.no ? null : u.no })),
+          items: u.items.map((it) => {
+            const st = this.lacsItemStyles[it.kind] || { bg: '#F1F4F9', fg: '#5A6B85' };
+            const pending = ['未読', '未提出', '未受験'].includes(it.state);
+            return {
+              ...it,
+              badgeStyle: `flex:none;font-size:11px;font-weight:800;padding:4px 9px;border-radius:6px;background:${st.bg};color:${st.fg};`,
+              stateStyle: `flex:none;font-size:11.5px;font-weight:700;white-space:nowrap;color:${pending ? '#B42318' : '#9AA6B8'};`,
+            };
+          }),
+        };
+      }),
+      lacsStaff: course.staff,
+      lacsDeadlines: course.deadlines.map((d) => ({
+        ...d,
+        barStyle: `width:4px;align-self:stretch;min-height:34px;border-radius:999px;flex:none;background:${d.urgent ? '#C4453D' : '#B7CEEB'};`,
+      })),
+      notices: this.notices,
+      calDays: this.buildCalDays(calY, calM),
+      calLabel: `${calY}年 ${calM}月`,
+      prevMonth: () => this.setState(() => { const d = new Date(calY, calM - 2, 1); return { calY: d.getFullYear(), calM: d.getMonth() + 1 }; }),
+      nextMonth: () => this.setState(() => { const d = new Date(calY, calM, 1); return { calY: d.getFullYear(), calM: d.getMonth() + 1 }; }),
+      goToday: () => this.setState({ calY: 2026, calM: 7 }),
+      legend: Object.keys(this.eventKinds).map((k) => ({
+        label: this.eventKinds[k].label,
+        swatchStyle: `width:10px;height:10px;border-radius:3px;flex:none;background:${this.eventKinds[k].bg};border:1.5px solid ${this.eventKinds[k].dot};`,
+      })),
+      monthEvents,
+      hasMonthEvents: monthEvents.length > 0,
+      upcoming,
+      isDashboard: view === 'dashboard',
+      isResults: view === 'results',
+      isDetail: view === 'detail',
+      goDashboard: () => this.setState({ view: 'dashboard' }),
+      goResults: () => this.setState({ view: 'results' }),
+      goDetail: () => this.setState({ view: 'detail' }),
+      syllabusYears: this.syllabi.slice().reverse().map((y) => ({
+        ...y,
+        panelStyle: 'width:100%;flex:none;',
+        videoNote: y.year + ' 収録 ／ 約2分',
+        facts: y.facts.map((f, i) => ({ ...f, cellStyle: `padding:16px 12px;${i === 5 ? '' : 'border-right:1px solid #eaf0f8;'}` })),
+        flow: y.flow.map((w) => ({ ...w, chipStyle: `background:${w.color};color:${w.fg};font-size:11.5px;font-weight:800;padding:5px 0;border-radius:999px;text-align:center;` })),
+        grading: y.grading.map((g) => ({ ...g, dotStyle: `width:10px;height:10px;border-radius:50%;flex:none;margin-top:4px;background:${g.color};` })),
+        pieStyle: `width:96px;height:96px;flex:none;border-radius:50%;background:conic-gradient(#8fb3d9 0 ${y.pie}%, #f4a0ae ${y.pie}% 100%);`,
+      })),
+      yearTabs: this.syllabi.map((y, i) => ({
+        label: y.tabLabel || y.year,
+        onClick: () => this.setState({ yearIdx: i }),
+        style: `padding:8px 15px;border-radius:999px;border:1.5px solid ${yearIdx === i ? '#2f6fb5' : '#cfe0f4'};background:${yearIdx === i ? '#2f6fb5' : '#fff'};color:${yearIdx === i ? '#fff' : '#6b7f99'};font-size:12.5px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;`,
+      })),
+      yearLabel: this.syllabi[yearIdx].year + '　' + this.syllabi[yearIdx].courseTag,
+      yearTrackStyle: `display:flex;width:100%;transform:translateX(-${(this.syllabi.length - 1 - yearIdx) * 100}%);transition:transform .35s cubic-bezier(.4,0,.2,1);`,
+      prevYear: () => this.setState((s) => ({ yearIdx: Math.min(this.syllabi.length - 1, s.yearIdx + 1) })),
+      nextYear: () => this.setState((s) => ({ yearIdx: Math.max(0, s.yearIdx - 1) })),
+      prevYearStyle: `padding:8px 16px;border-radius:999px;border:1px solid #cfe0f4;background:#fff;color:#6b7f99;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;opacity:${yearIdx >= this.syllabi.length - 1 ? '.35' : '1'};`,
+      nextYearStyle: `padding:8px 16px;border-radius:999px;border:1px solid #cfe0f4;background:#fff;color:#6b7f99;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;opacity:${yearIdx <= 0 ? '.35' : '1'};`,
+      query: this.state.query,
+      onQuery: (e) => this.setState({ query: e.target.value }),
+      onQuerySubmit: (e) => { if (e.key === 'Enter') this.setState({ view: 'results' }); },
+      searchTag: (label) => () => this.setState({ query: label, view: 'results' }),
+      catTabs, termChips, groupedResults,
+      visibleCount: pool.length,
+      noResults: pool.length === 0,
+      pages, ledger, tags: this.tags, chart,
+      settingsOpen: this.state.settingsOpen,
+      compareOpen: this.state.compareOpen,
+      openSettings: () => this.setState({ settingsOpen: true }),
+      closeSettings: () => this.setState({ settingsOpen: false }),
+      openCompare: () => this.setState({ compareOpen: true }),
+      closeCompare: () => this.setState({ compareOpen: false }),
+      stop: (e) => e.stopPropagation(),
+      toggle: (k) => this.toggle(k),
+      toggleTrack: (k) => this.toggleTrack(k),
+      toggleKnob: (k) => this.toggleKnob(k),
+      fontSizes, layouts,
+    };
+  }
+}
+
+</script>
+</body>
+</html>

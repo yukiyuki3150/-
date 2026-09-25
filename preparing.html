@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>準備中</title>
+  <style>
+    :root {
+      --navy: #0B2545;
+      --navy-2: #163A6B;
+      --blue: #2E7DD1;
+      --soft: #F4F7FB;
+      --text: #1B2430;
+      --muted: #68778C;
+      --line: #E4E8F0;
+      --warning: #F8C56E;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
+      background: linear-gradient(180deg, #eef5ff 0%, #f8fafc 100%);
+      color: var(--text);
+    }
+    .wrap {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+    }
+    .card {
+      width: min(760px, 100%);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: 0 16px 40px rgba(11, 37, 69, 0.08);
+      overflow: hidden;
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 18px 24px;
+      background: var(--navy);
+      color: #fff;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+    .logo {
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      background: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .content {
+      padding: 52px 32px 40px;
+      text-align: center;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: #fff4d6;
+      border: 1px solid #f1d58f;
+      font-size: 42px;
+      margin-bottom: 18px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--navy);
+    }
+    p {
+      margin: 16px auto 0;
+      max-width: 560px;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+    .button-row {
+      margin-top: 32px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    a.button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .15s ease;
+    }
+    a.button:hover { transform: translateY(-1px); }
+    a.primary {
+      background: var(--navy);
+      color: #fff;
+    }
+    a.secondary {
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--navy);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="topbar">
+        <div class="brand">
+          <div class="logo">N</div>
+          <span>長崎大学 学務情報システム</span>
+        </div>
+        <div style="opacity:.8;">NU-Web</div>
+      </div>
+      <div class="content">
+        <div class="badge">⚒️</div>
+        <h1>準備中です</h1>
+        <p>
+          この機能は現在準備中です。公開までしばらくお待ちください。<br>
+          ご利用の際は、別のページや案内をご確認いただけます。
+        </p>
+        <div class="button-row">
+          <a class="button primary" href="NUWeb Redesign.html">トップへ戻る</a>
+          <a class="button secondary" href="NUWeb Redesign.html" onclick="if (history.length > 1) { history.back(); return false; }">前のページへ戻る</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

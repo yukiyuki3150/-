@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>長崎大学ポータルサイト - リンク</title>
+  <style>
+    :root {
+      --navy: #0b2545;
+      --blue: #1e5fa8;
+      --bg: #f4f6fa;
+      --card: #ffffff;
+      --text: #1b2430;
+      --muted: #667085;
+      --border: #dfe5ef;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #edf3ff 0%, var(--bg) 100%);
+      color: var(--text);
+      font-family: "Noto Sans JP", "Segoe UI", sans-serif;
+    }
+    .card {
+      width: min(680px, calc(100vw - 32px));
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(17, 32, 63, 0.08);
+      padding: 32px 28px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--blue), #4f88d9);
+      color: white;
+      font-weight: 800;
+      font-size: 22px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(1.5rem, 2vw, 2.1rem);
+      line-height: 1.3;
+    }
+    p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+    .primary {
+      background: var(--blue);
+      color: white;
+      box-shadow: 0 12px 24px rgba(30, 95, 168, 0.18);
+    }
+    .primary:hover { background: #164a86; }
+    .secondary {
+      background: #f4f7fb;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .secondary:hover { background: #edf2f9; }
+    .meta {
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="brand">
+      <div class="logo">N</div>
+      <h1>長崎大学ポータルサイト</h1>
+    </div>
+
+    <p>
+      こちらのリンクから、完成したサイトを開くことができます。<br>
+      画面上の操作や検索、シラバスの詳細表示もそのまま確認できます。
+    </p>
+
+    <div class="actions">
+      <a class="button primary" href="NUWeb Redesign.html">サイトを開く</a>
+      <a class="button secondary" href="preparing.html">準備中ページを確認</a>
+    </div>
+
+    <div class="meta">
+      対象ファイル: NUWeb Redesign.html
+    </div>
+  </main>
+</body>
+</html>
