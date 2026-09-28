@@ -898,7 +898,7 @@ class Component extends DCLogic {
     openMenu: null, qIndex: 0, answers: [],
     resFilter: { cat: 'all', term: 'all' },
     calY: 2026, calM: 7, query: '',
-    lacsCourse: 'joho', openUnit: '03', yearIdx: 0,
+    lacsCourse: 'joho', openUnit: '03', yearIdx: 0, detailCourseTag: '',
     settingsOpen: false, compareOpen: false,
     fontSize: 'M', layout: 'standard',
     editMode: false, memo: false, illust: true, media: true,
@@ -1252,7 +1252,7 @@ class Component extends DCLogic {
     { cat: 'kyoyo', term: '通年', dp: 'オンデマンド', numbering: 'GECR 10701', title: 'キャリア入門', teacher: '就職支援課', credits: '1単位', year: '1・2年次' },
     { cat: 'kyoyo', term: '1Q', dp: '水3,水4', numbering: 'GEEP 10801', title: '●アントレ実践入門(1) 課題発見・システム思考入門', teacher: '津留崎 和義', credits: '2単位', year: '全年次', alias: 'アントレ アントレプレナー entre 起業', detailIndex: 1 },
     { cat: 'kyoyo', term: '2Q', dp: '水3,水4', numbering: 'GEEP 10901', title: '●アントレ実践入門(2) アイデア創出・デザイン思考入門', teacher: '津留崎 和義', credits: '2単位', year: '全年次', alias: 'アントレ アントレプレナー entre 起業 デザイン思考', detailIndex: 0 },
-    { cat: 'kyoyo', term: '後期', dp: '木5', numbering: 'GEEP 11001', title: '●アントレ実践入門(3) 事業計画策定入門', teacher: '津留崎 和義', credits: '2単位', year: '全年次', alias: 'アントレ アントレプレナー entre 起業 ビジコン' },
+    { cat: 'kyoyo', term: '後期', dp: '木5', numbering: 'GEEP 11001', title: '●アントレ実践入門(3) 事業計画策定入門', teacher: '津留崎 和義', credits: '2単位', year: '全年次', alias: 'アントレ アントレプレナー entre 起業 ビジコン', detailIndex: 0, detailCourseTag: 'アントレ実践入門(3)' },
 
     { cat: 'senmon', term: '前期', dp: '木3', numbering: 'ECMC 11101', title: '経済概論（令和5年度以降入学者対象）', teacher: '山口 純哉', credits: '2単位', year: '1〜4年次' },
     { cat: 'senmon', term: '前期', dp: '水6', numbering: 'ECMC 11101', title: '経済概論（令和4年度以前入学者対象）', teacher: '山口 純哉', credits: '2単位', year: '2〜4年次' },
@@ -1424,7 +1424,7 @@ class Component extends DCLogic {
       termStyle: this.termStyle(r.term),
       catLabel: catMeta[r.cat].label,
       catStyle: `${catMeta[r.cat].style}font-size:12px;font-weight:700;padding:3px 9px;border-radius:6px;white-space:nowrap;`,
-      onClick: () => this.setState({ view: 'detail', settingsOpen: false, yearIdx: r.detailIndex === undefined ? 0 : r.detailIndex }),
+      onClick: () => this.setState({ view: 'detail', settingsOpen: false, yearIdx: r.detailIndex === undefined ? 0 : r.detailIndex, detailCourseTag: r.detailCourseTag || '' }),
     });
 
     let groupedResults;
@@ -1645,8 +1645,9 @@ class Component extends DCLogic {
       goDashboard: () => this.setState({ view: 'dashboard' }),
       goResults: () => this.setState({ view: 'results' }),
       goDetail: () => this.setState({ view: 'detail' }),
-      syllabusYears: this.syllabi.slice().reverse().map((y) => ({
+      syllabusYears: this.syllabi.slice().reverse().map((y, displayIndex) => ({
         ...y,
+        courseTag: displayIndex === this.syllabi.length - 1 - yearIdx && this.state.detailCourseTag ? this.state.detailCourseTag : y.courseTag,
         panelStyle: 'width:100%;flex:none;',
         videoNote: y.year + ' 収録 ／ 約2分',
         facts: y.facts.map((f, i) => ({ ...f, cellStyle: `padding:16px 12px;${i === 5 ? '' : 'border-right:1px solid #eaf0f8;'}` })),
@@ -1656,13 +1657,13 @@ class Component extends DCLogic {
       })),
       yearTabs: this.syllabi.map((y, i) => ({
         label: y.tabLabel || y.year,
-        onClick: () => this.setState({ yearIdx: i }),
+        onClick: () => this.setState({ yearIdx: i, detailCourseTag: '' }),
         style: `padding:8px 15px;border-radius:999px;border:1.5px solid ${yearIdx === i ? '#2f6fb5' : '#cfe0f4'};background:${yearIdx === i ? '#2f6fb5' : '#fff'};color:${yearIdx === i ? '#fff' : '#6b7f99'};font-size:12.5px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;`,
       })),
       yearLabel: this.syllabi[yearIdx].year + '　' + this.syllabi[yearIdx].courseTag,
       yearTrackStyle: `display:flex;width:100%;transform:translateX(-${(this.syllabi.length - 1 - yearIdx) * 100}%);transition:transform .35s cubic-bezier(.4,0,.2,1);`,
-      prevYear: () => this.setState((s) => ({ yearIdx: Math.min(this.syllabi.length - 1, s.yearIdx + 1) })),
-      nextYear: () => this.setState((s) => ({ yearIdx: Math.max(0, s.yearIdx - 1) })),
+      prevYear: () => this.setState((s) => ({ yearIdx: Math.min(this.syllabi.length - 1, s.yearIdx + 1), detailCourseTag: '' })),
+      nextYear: () => this.setState((s) => ({ yearIdx: Math.max(0, s.yearIdx - 1), detailCourseTag: '' })),
       prevYearStyle: `padding:8px 16px;border-radius:999px;border:1px solid #cfe0f4;background:#fff;color:#6b7f99;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;opacity:${yearIdx >= this.syllabi.length - 1 ? '.35' : '1'};`,
       nextYearStyle: `padding:8px 16px;border-radius:999px;border:1px solid #cfe0f4;background:#fff;color:#6b7f99;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;opacity:${yearIdx <= 0 ? '.35' : '1'};`,
       query: this.state.query,
