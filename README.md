@@ -2,6 +2,8 @@
 
 長崎大学の学務ポータルのリデザイン案。学生・教員・事務の3役割を切り替えて体験できる、Vite + React 18 / JavaScriptのプロトタイプです。バックエンドや実際の認証はありません。
 
+> 以前このリポジトリのmainにあった試作（`NUWeb Redesign.html` など）は、ブランチ `archive/nuweb-prototype` にそのまま保管しています。
+
 ## 起動
 
 ```sh

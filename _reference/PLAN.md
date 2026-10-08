@@ -12,7 +12,7 @@
 - Vite + React 18 + JavaScript（TypeScript なし）。ルーティングは react-router-dom（HashRouter：GitHub Pages で動くように）。
 - 追加ライブラリは最小限。アイコンは lucide-react 可。ドラッグ&ドロップは HTML5 DnD を自前で（ライブラリ不要）。グラフは自前SVG。
 - `vite.config.js` に `base: './'`。`npm run build` が通ること。
-- フォルダ: このファイルの親の親 = `campus-hub/` がプロジェクトルート。`_reference/` はそのまま残す（.gitignore しない）。
+- フォルダ: このファイルの親の親（リポジトリ直下）がプロジェクトルート（2026-10-08 に `campus-hub/` から直下へ移動）。`_reference/` はそのまま残す（.gitignore しない）。
 - README.md（日本語）: 起動方法、画面一覧、ミーティングで決まったこと→どこに反映したか の対応表。
 
 ## 画面構成
