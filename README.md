@@ -127,3 +127,10 @@ URLの `#` 以降がルートです。最初は `/` で役割を選択してく�
 | 8 | `yukiyuki3150/-` の `feature/campus-hub` へpush・PR作成（main直push禁止） | 実施（2026-10-08） |
 
 今回の環境ではnpmのネットワークアクセスが制限されていたため、既存キャッシュを一時ディレクトリへコピーし、オフラインで `npm install` を実行しました。通常の環境では上記の起動手順を利用してください。`scripts/check.mjs` はサーバー不要のReact描画・CSV解析検証であり、ブラウザE2Eテストを代替するものではありません。
+
+
+## 公開サイト
+
+[Campus Hubを開く](https://yukiyuki3150.github.io/-/)
+
+`main`へのpush時にGitHub Actionsで自動デプロイされます。
