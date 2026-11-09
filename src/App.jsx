@@ -132,6 +132,39 @@ export function App() {
           <p className="muted">
             {c.category} · {c.type} · 2026年度 後期
           </p>
+          <section style={{ marginTop: 20, padding: 18, borderRadius: 14, background: "#edf4ff" }}>
+            <p style={{ margin: "0 0 12px", color: "#183b70" }}>
+              担当の先生について詳しく知りたい方は、プロフィールをご覧ください。
+            </p>
+            <button
+              className="primary"
+              type="button"
+              onClick={() =>
+                setModal({
+                  title: `${c.teacher}先生のプロフィール`,
+                  body: (
+                    <>
+                      <div className={`course-detail color${c.color}`}>
+                        <p style={{ fontSize: 18, fontWeight: 700, marginTop: 0 }}>
+                          {c.teacher} 先生
+                        </p>
+                        <p>Campus Hub 授業担当教員</p>
+                      </div>
+                      <h3>担当授業</h3>
+                      <p>{c.name}</p>
+                      <h3>授業について</h3>
+                      <p>{c.summary}</p>
+                      <p className="muted">教員の詳細な紹介情報は、公開されている授業情報に基づいて表示しています。</p>
+                    </>
+                  ),
+                  action: () => openCourse(c),
+                  label: "授業詳細に戻る",
+                })
+              }
+            >
+              先生のプロフィールを見る <ArrowRight size={17} />
+            </button>
+          </section>
         </>
       ),
     });
