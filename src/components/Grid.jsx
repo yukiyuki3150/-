@@ -6,10 +6,54 @@ import { CampusContext } from "../lib/context";
 
 import { weekDate } from "../lib/dates";
 
-export function Grid({ items, editable = false, offset = 0 }) {
-  const { catalog, setDraft, add, openCourse, setModal } =
+export function Grid({
+  items,
+  editable = false,
+  offset = 0,
+  showSubmissions = false,
+}) {
+  const { catalog, setDraft, add, openCourse, setModal, tasks } =
     useContext(CampusContext);
   const [drag, setDrag] = useState(null);
+  const submissionDays = showSubmissions
+    ? days.map((_, dayIndex) => {
+        const date = weekDate(offset, dayIndex);
+        return {
+          date,
+          counts: ["課題", "アンケート"].map((type) => ({
+            type,
+            count: tasks.filter(
+              (task) =>
+                task.type === type &&
+                !task.done &&
+                task.date.match(/^\d{1,2}\/\d{1,2}/)?.[0] === date,
+            ).length,
+          })),
+        };
+      })
+    : [];
+  const openSubmissionDetails = (type, date) => {
+    const matchingTasks = tasks.filter(
+      (task) =>
+        task.type === type &&
+        !task.done &&
+        task.date.match(/^\d{1,2}\/\d{1,2}/)?.[0] === date,
+    );
+    setModal({
+      title: `${date}の${type}`,
+      body: (
+        <div className="submission-details">
+          {matchingTasks.map((task) => (
+            <article className="submission-detail" key={task.id}>
+              <strong>{task.submissionName || task.title}</strong>
+              <span>科目：{task.course || "科目未設定"}</span>
+              <span>締切日：{task.deadline || task.date}</span>
+            </article>
+          ))}
+        </div>
+      ),
+    });
+  };
   return (
     <div className="grid-scroll">
       <div className="timetable-grid">
@@ -91,6 +135,32 @@ export function Grid({ items, editable = false, offset = 0 }) {
             ))}
           </React.Fragment>
         ))}
+        {showSubmissions && (
+          <>
+            <div className="period submission-period">提出物</div>
+            {submissionDays.map(({ date, counts }, dayIndex) => (
+              <div
+                className={`slot submission-day ${dayIndex === 3 && offset === 0 ? "today" : ""}`}
+                key={date}
+                aria-label={`${date}の提出物`}
+              >
+                {counts.map(({ type, count }) => (
+                  count > 0 && (
+                    <button
+                      className="submission-count"
+                      key={type}
+                      type="button"
+                      aria-label={`${date}の${type}${count}件の詳細`}
+                      onClick={() => openSubmissionDetails(type, date)}
+                    >
+                      {type} <b>{count}</b>件
+                    </button>
+                  )
+                ))}
+              </div>
+            ))}
+          </>
+        )}
       </div>
     </div>
   );

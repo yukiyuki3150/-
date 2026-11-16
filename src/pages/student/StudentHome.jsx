@@ -8,6 +8,7 @@ import {
   Bell,
   FileText,
   ChevronRight,
+  Users,
 } from "../../icons";
 import { periods } from "../../data/mock";
 import { CampusContext } from "../../lib/context";
@@ -69,6 +70,13 @@ export function StudentHome() {
             "申請する",
             "手続きを、もっとスムーズに",
             "applications",
+          ],
+          [
+            Users,
+            "コミュニティ",
+            "作成・検索",
+            "学生同士のつながりを見つける",
+            "community",
           ],
         ].map(([Icon, title, count, desc, path], i) => (
           <Link

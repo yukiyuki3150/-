@@ -22,6 +22,7 @@ export const menus = {
     ["grades", "成績・履修状況", ChartColumn],
     ["notices", "お知らせ", Bell],
     ["applications", "各種申請", FileText],
+    ["community", "コミュニティ", Users],
   ],
   teacher: [
     ["home", "ホーム", Home],

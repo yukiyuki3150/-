@@ -41,6 +41,7 @@ import { Registration } from "./pages/student/Registration";
 import { Tasks } from "./pages/student/Tasks";
 import { StudentGrades } from "./pages/student/StudentGrades";
 import { Notices } from "./pages/student/Notices";
+import { Community } from "./pages/student/Community";
 
 export function App() {
   const nav = useNavigate(),
@@ -64,6 +65,29 @@ export function App() {
   useEffect(() => {
     setModal(null);
   }, [loc.key, loc.pathname, loc.search, loc.hash]);
+  useEffect(() => {
+    const surveyTask = seedTasks.find((task) => task.type === "アンケート");
+    setTasks((current) => {
+      let changed = false;
+      const migrated = current.map((task) => {
+        const sample = seedTasks.find((item) => item.id === task.id);
+        if (
+          !sample ||
+          ["submissionName", "course", "deadline"].every(
+            (key) => task[key] === sample[key],
+          )
+        )
+          return task;
+        changed = true;
+        return { ...sample, ...task };
+      });
+      if (surveyTask && !migrated.some((task) => task.type === "アンケート")) {
+        migrated.push(surveyTask);
+        changed = true;
+      }
+      return changed ? migrated : current;
+    });
+  }, [tasks, setTasks]);
   const tell = (m) => {
     setToast(m);
     setTimeout(() => setToast(""), 4000);
@@ -193,6 +217,7 @@ export function App() {
       grades: <StudentGrades />,
       notices: <Notices />,
       applications: <Applications />,
+      community: <Community />,
     }[page];
   }
   if (!role || loc.pathname === "/")

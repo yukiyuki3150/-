@@ -222,7 +222,7 @@ export function Timetable() {
             </div>
           </div>
           {view === "week" ? (
-            <Grid items={reg} offset={offset} />
+            <Grid items={reg} offset={offset} showSubmissions />
           ) : (
             <div className="month-grid">
               {days.map((d) => (

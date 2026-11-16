@@ -13,7 +13,7 @@ export function Tasks() {
         subtitle="授業も、課題も。今日やることをひと目で。"
       />
       <div className="tabs">
-        {["すべて", "課題", "授業", "申請", "お知らせ"].map((t) => (
+        {["すべて", "課題", "アンケート", "授業", "申請", "お知らせ"].map((t) => (
           <button
             className={tab === t ? "active" : ""}
             key={t}
