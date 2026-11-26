@@ -11,6 +11,8 @@ export function Grid({
   editable = false,
   offset = 0,
   showSubmissions = false,
+  activeSlot = null,
+  onSlotClick,
 }) {
   const { catalog, setDraft, add, openCourse, setModal, tasks } =
     useContext(CampusContext);
@@ -73,66 +75,106 @@ export function Grid({
               <b>{pi + 1}</b>
               <small>{p}</small>
             </div>
-            {days.map((d, di) => (
-              <div
-                key={d}
-                className={`slot ${di === 3 && offset === 0 ? "today" : ""} ${drag?.day === di && drag?.period === pi + 1 ? "droppable" : ""}`}
-                onDragEnter={() => {}}
-                onDragOver={(e) => {
-                  if (editable) {
-                    e.preventDefault();
-                    try {
-                      const c = catalog.find((c) => c.id === window.chDrag);
-                      setDrag(c);
-                    } catch {}
+            {days.map((d, di) => {
+              const occupied = items.some(
+                (c) => c.day === di && c.period === pi + 1,
+              );
+              return (
+                <div
+                  key={d}
+                  className={`slot ${di === 3 && offset === 0 ? "today" : ""} ${drag?.day === di && drag?.period === pi + 1 ? "droppable" : ""} ${activeSlot?.day === di && activeSlot?.period === pi + 1 ? "slot-selected" : ""}`}
+                  role={editable && !occupied ? "button" : undefined}
+                  tabIndex={editable && !occupied ? 0 : undefined}
+                  aria-label={
+                    editable && !occupied
+                      ? `${d}曜日${pi + 1}限の空欄から開講科目を表示`
+                      : undefined
                   }
-                }}
-                onDragLeave={() => setDrag(null)}
-                onDrop={(e) => {
-                  if (!editable) return;
-                  e.preventDefault();
-                  const c = catalog.find(
-                    (c) => c.id === e.dataTransfer.getData("text/plain"),
-                  );
-                  setDrag(null);
-                  if (c) add(c);
-                }}
-              >
-                {items
-                  .filter((c) => c.day === di && c.period === pi + 1)
-                  .map((c) => (
-                    <div key={c.id} className={`course color${c.color}`}>
-                      <button
-                        className="course-main"
-                        onClick={() => openCourse(c)}
-                      >
-                        <strong>{c.name}</strong>
-                        <small>教室 {c.room}</small>
-                        <small>{c.teacher} 先生</small>
-                      </button>
-                      {editable && (
+                  aria-pressed={
+                    editable && !occupied
+                      ? activeSlot?.day === di &&
+                        activeSlot?.period === pi + 1
+                      : undefined
+                  }
+                  onDragEnter={() => {}}
+                  onClick={() => {
+                    if (editable && !occupied)
+                      onSlotClick?.({ day: di, period: pi + 1 });
+                  }}
+                  onKeyDown={(e) => {
+                    if (
+                      editable &&
+                      !occupied &&
+                      (e.key === "Enter" || e.key === " ")
+                    ) {
+                      e.preventDefault();
+                      onSlotClick?.({ day: di, period: pi + 1 });
+                    }
+                  }}
+                  onDragOver={(e) => {
+                    if (editable) {
+                      e.preventDefault();
+                      try {
+                        const c = catalog.find((c) => c.id === window.chDrag);
+                        setDrag(c);
+                      } catch {}
+                    }
+                  }}
+                  onDragLeave={() => setDrag(null)}
+                  onDrop={(e) => {
+                    if (!editable) return;
+                    e.preventDefault();
+                    const c = catalog.find(
+                      (c) => c.id === e.dataTransfer.getData("text/plain"),
+                    );
+                    setDrag(null);
+                    if (c) add(c);
+                  }}
+                >
+                  {items
+                    .filter((c) => c.day === di && c.period === pi + 1)
+                    .map((c) => (
+                      <div key={c.id} className={`course color${c.color}`}>
                         <button
-                          aria-label={`${c.name}を外す`}
-                          className="remove"
-                          onClick={() =>
-                            setModal({
-                              title: "科目を外しますか？",
-                              body: <p>{c.name}を仮登録から外します。</p>,
-                              action: () => {
-                                setDraft((a) => a.filter((id) => id !== c.id));
-                                setModal(null);
-                              },
-                              label: "外す",
-                            })
-                          }
+                          className="course-main"
+                          onClick={() => openCourse(c)}
                         >
-                          <X size={14} />
+                          <strong>{c.name}</strong>
+                          <small>教室 {c.room}</small>
+                          <small>{c.teacher} 先生</small>
                         </button>
-                      )}
-                    </div>
-                  ))}
-              </div>
-            ))}
+                        {editable && (
+                          <button
+                            aria-label={`${c.name}を外す`}
+                            className="remove"
+                            onClick={() =>
+                              setModal({
+                                title: "科目を外しますか？",
+                                body: <p>{c.name}を仮登録から外します。</p>,
+                                action: () => {
+                                  setDraft((a) =>
+                                    a.filter((id) => id !== c.id),
+                                  );
+                                  setModal(null);
+                                },
+                                label: "外す",
+                              })
+                            }
+                          >
+                            <X size={14} />
+                          </button>
+                        )}
+                      </div>
+                    ))}
+                  {editable &&
+                    !occupied &&
+                    activeSlot?.day === di &&
+                    activeSlot?.period === pi + 1 && (
+                      <span className="slot-selection-label">選択中</span>
+                  )}
+                </div>
+              );
+            })}
           </React.Fragment>
         ))}
         {showSubmissions && (
