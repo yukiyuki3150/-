@@ -705,6 +705,12 @@ input[type="checkbox"] {
   background: var(--blue);
   border-radius: 50%;
 }
+.schedule-row-cancelled {
+  background: #fff8f8;
+}
+.schedule-row-cancelled i {
+  background: #d84952;
+}
 .schedule-row small {
   margin-left: auto;
   color: #8a96a7;
