@@ -1,4 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, {
+  useState,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+} from "react";
 
 import { CalendarDays, BookOpen, Star, ArrowRight } from "../../icons";
 import { days } from "../../data/mock";
@@ -25,6 +31,34 @@ export function Registration() {
     setModal,
   } = useContext(CampusContext);
   const [results, setResults] = useState(catalog);
+  const [activeSlot, setActiveSlot] = useState(null);
+  const catalogRows = useRef({});
+  const catalogSection = useRef(null);
+  const slotResults = useMemo(
+    () =>
+      activeSlot
+        ? catalog.filter(
+            (course) =>
+              course.day === activeSlot.day &&
+              course.period === activeSlot.period,
+          )
+        : results,
+    [activeSlot, catalog, results],
+  );
+  useEffect(() => {
+    if (!activeSlot) return;
+    if (slotResults.length) {
+      catalogRows.current[slotResults[0].id]?.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+      });
+    } else {
+      catalogSection.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }, [activeSlot, slotResults]);
   const confirm = () =>
     setModal({
       title: "登録内容を確認",
@@ -150,17 +184,34 @@ export function Registration() {
             <span className="registration-help-mobile">
               下の科目一覧から「＋追加」で登録できます。
             </span>
+            <br />
+            時間割の空欄をクリックすると、その曜日・時限の開講科目が一覧に表示されます。
           </p>
-          <Grid items={selected} editable />
+          <Grid
+            items={selected}
+            editable
+            activeSlot={activeSlot}
+            onSlotClick={setActiveSlot}
+          />
         </section>
-        <section className="panel">
+        <section className="panel" ref={catalogSection}>
           <h3>
             <BookOpen />
             開講科目一覧
           </h3>
+          {activeSlot && (
+            <div className="catalog-slot-filter" aria-live="polite">
+              <span>
+                {days[activeSlot.day]}曜{activeSlot.period}限の開講科目
+              </span>
+              <button type="button" onClick={() => setActiveSlot(null)}>
+                解除
+              </button>
+            </div>
+          )}
           <Filters onChange={setResults} />
           <div className="catalog-list">
-            {[...results]
+            {[...slotResults]
               .sort(
                 (a, b) =>
                   Number(favorites.includes(b.id)) -
@@ -169,7 +220,11 @@ export function Registration() {
               .map((c) => (
                 <div
                   key={c.id}
-                  className="catalog-row"
+                  ref={(element) => {
+                    if (element) catalogRows.current[c.id] = element;
+                    else delete catalogRows.current[c.id];
+                  }}
+                  className={`catalog-row ${activeSlot ? "catalog-row-highlight" : ""}`}
                   draggable
                   onDragStart={(e) => {
                     e.dataTransfer.setData("text/plain", c.id);
@@ -226,8 +281,12 @@ export function Registration() {
                   </button>
                 </div>
               ))}
-            {!results.length && (
-              <p className="empty">該当する科目がありません。</p>
+            {!slotResults.length && (
+              <p className="empty">
+                {activeSlot
+                  ? "この曜日・時限に開講される科目はありません。"
+                  : "該当する科目がありません。"}
+              </p>
             )}
           </div>
         </section>
